@@ -1,0 +1,24 @@
+# This is docker-compose's configuration file.
+# Use it to build project with gcc and clang and run tests.
+
+gcc:
+    build: ../.
+    container_name: gcc
+    volumes:
+        - "../.:/tmp/cargo/:ro"
+
+    environment:
+        - CC=gcc
+        - CXX=g++
+        - CFLAGS="-fdiagnostics-color=always"
+
+clang:
+    build: ../.
+    container_name: clang
+    volumes:
+        - "../.:/tmp/cargo/:ro"
+
+    environment:
+        - CC=clang
+        - CXX=clang++
+        - CFLAGS="-fdiagnostics-color=always"

@@ -19,3 +19,4 @@ Makefile
 
 # Others
 doc/html
+/build
