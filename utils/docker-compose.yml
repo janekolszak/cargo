@@ -10,9 +10,6 @@ gcc:
     environment:
         - CC=gcc
         - CXX=g++
-        - CFLAGS="-fdiagnostics-color=always"
-        - CARGO_BUILD_FORCE_COMPILER_COLORS=1
-
 
 clang:
     build: ../.
@@ -23,4 +20,3 @@ clang:
     environment:
         - CC=clang
         - CXX=clang++
-        - CFLAGS="-fdiagnostics-color=always"

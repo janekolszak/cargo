@@ -1,19 +1,22 @@
-FROM gcc:5.3
+FROM ubuntu:xenial
 
 RUN apt-get update && apt-get install -y \
 	    cmake \
 	    clang \
-	    libboost-test1.55-dev \
-	    libboost-system1.55-dev \
-	    libboost-filesystem1.55-dev \
+	    gcc \
+	    libboost-test1.58-dev \
+	    libboost-system1.58-dev \
+	    libboost-filesystem1.58-dev \
 	    libglib2.0-dev \
 	    uuid-dev \
+	    libsystemd-dev \
 	    libjson-c-dev \
-	    libsystemd-journal-dev \
 	    libsqlite3-dev \
-	    libsystemd-daemon-dev \
+	    gdb \
 	&& apt-get clean \
 	&& rm -rf /var/lib/apt/lists/*
+	    # libsystemd-journal-dev \
+	    # libsystemd-daemon-dev \
 
 COPY utils/build.sh .
 RUN chmod a+x ./build.sh
