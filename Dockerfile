@@ -15,8 +15,7 @@ RUN apt-get update && apt-get install -y \
 	&& apt-get clean \
 	&& rm -rf /var/lib/apt/lists/*
 
-RUN rm -fr /tmp/build && mkdir -p /tmp/build
-COPY utils/build.sh /tmp/build
-RUN chmod a+x /tmp/build/build.sh
+COPY utils/build.sh .
+RUN chmod a+x ./build.sh
 
-CMD ["/tmp/build/build.sh"]
+CMD ["./build.sh"]
