@@ -36,7 +36,7 @@
 #include <map>
 #include <utility>
 
-#include <json.h>
+#include <json-c/json.h>
 
 namespace cargo {
 

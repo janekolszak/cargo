@@ -30,7 +30,7 @@
 #include "cargo/exception.hpp"
 #include "cargo/internals/visit-fields.hpp"
 
-#include <json.h>
+#include <json-c/json.h>
 #include <string>
 #include <cstring>
 #include <vector>
