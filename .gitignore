@@ -20,3 +20,6 @@ Makefile
 # Others
 doc/html
 /build
+
+.tags
+.tags_sorted_by_file
