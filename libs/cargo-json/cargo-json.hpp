@@ -26,7 +26,7 @@
 #ifndef CARGO_JSON_CARGO_JSON_HPP
 #define CARGO_JSON_CARGO_JSON_HPP
 
-#include "utils/fs.hpp"
+#include "cargo-utils/fs.hpp"
 #include "cargo-json/internals/to-json-visitor.hpp"
 #include "cargo-json/internals/from-json-visitor.hpp"
 

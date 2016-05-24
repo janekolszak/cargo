@@ -29,8 +29,8 @@
 
 #include "cargo-sqlite/internals/kvstore.hpp"
 #include "cargo/exception.hpp"
-#include "utils/scoped-dir.hpp"
-#include "utils/latch.hpp"
+#include "cargo-utils/scoped-dir.hpp"
+#include "cargo-utils/latch.hpp"
 
 #include <iostream>
 #include <memory>

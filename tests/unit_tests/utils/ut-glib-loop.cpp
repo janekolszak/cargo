@@ -27,7 +27,7 @@
 
 #include "ut.hpp"
 
-#include "utils/glib-loop.hpp"
+#include "cargo-utils/glib-loop.hpp"
 
 #include <atomic>
 

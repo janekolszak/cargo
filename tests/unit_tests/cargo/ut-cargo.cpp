@@ -27,14 +27,14 @@
 
 #include "ut.hpp"
 #include "testconfig-example.hpp"
-#include "utils/fs.hpp"
-#include "utils/fd-utils.hpp"
+#include "cargo-utils/fs.hpp"
+#include "cargo-utils/fd-utils.hpp"
 #include "cargo-gvariant/cargo-gvariant.hpp"
 #include "cargo-fd/cargo-fd.hpp"
 #include "cargo-sqlite/cargo-sqlite.hpp"
 #include "cargo-json/cargo-json.hpp"
 #include "cargo-sqlite-json/cargo-sqlite-json.hpp"
-#include "utils/scoped-dir.hpp"
+#include "cargo-utils/scoped-dir.hpp"
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>

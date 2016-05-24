@@ -26,7 +26,7 @@
 #define CARGO_IPC_EPOLL_GLIB_DISPATCHER_HPP
 
 #include "cargo-ipc/epoll/event-poll.hpp"
-#include "utils/callback-guard.hpp"
+#include "cargo-utils/callback-guard.hpp"
 
 #include <gio/gio.h>
 

@@ -27,7 +27,7 @@
 
 #include "ut.hpp"
 
-#include "utils/same-thread-guard.hpp"
+#include "cargo-utils/same-thread-guard.hpp"
 #include <thread>
 
 #ifdef ENABLE_SAME_THREAD_GUARD

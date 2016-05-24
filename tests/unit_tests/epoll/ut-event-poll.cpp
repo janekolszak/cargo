@@ -30,8 +30,8 @@
 #include "cargo-ipc/epoll/event-poll.hpp"
 #include "logger/logger.hpp"
 #include "cargo-ipc/internals/socket.hpp"
-#include "utils/value-latch.hpp"
-#include "utils/glib-loop.hpp"
+#include "cargo-utils/value-latch.hpp"
+#include "cargo-utils/glib-loop.hpp"
 #include "cargo-ipc/epoll/glib-dispatcher.hpp"
 #include "cargo-ipc/epoll/thread-dispatcher.hpp"
 

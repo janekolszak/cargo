@@ -25,8 +25,8 @@
 #include "config.hpp"
 
 #include "cargo-validator/validator.hpp"
-#include "utils/fs.hpp"
-#include "utils/exception.hpp"
+#include "cargo-utils/fs.hpp"
+#include "cargo-utils/exception.hpp"
 
 using namespace utils;
 

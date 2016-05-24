@@ -27,10 +27,10 @@
 
 #include "ut.hpp"
 
-#include "utils/inotify.hpp"
-#include "utils/fs.hpp"
-#include "utils/scoped-dir.hpp"
-#include "utils/value-latch.hpp"
+#include "cargo-utils/inotify.hpp"
+#include "cargo-utils/fs.hpp"
+#include "cargo-utils/scoped-dir.hpp"
+#include "cargo-utils/value-latch.hpp"
 
 #include "logger/logger.hpp"
 

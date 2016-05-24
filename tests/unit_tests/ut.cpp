@@ -30,7 +30,7 @@
 
 #include <boost/test/included/unit_test.hpp>
 
-#include "utils/signal.hpp"
+#include "cargo-utils/signal.hpp"
 
 using namespace boost::unit_test;
 using namespace logger;

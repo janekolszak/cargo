@@ -27,9 +27,9 @@
 
 #include "ut.hpp"
 
-#include "utils/fs.hpp"
-#include "utils/exception.hpp"
-#include "utils/scoped-dir.hpp"
+#include "cargo-utils/fs.hpp"
+#include "cargo-utils/exception.hpp"
+#include "cargo-utils/scoped-dir.hpp"
 
 #include <memory>
 #include <sys/mount.h>

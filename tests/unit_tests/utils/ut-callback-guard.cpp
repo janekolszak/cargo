@@ -27,8 +27,8 @@
 
 #include "ut.hpp"
 
-#include "utils/callback-guard.hpp"
-#include "utils/latch.hpp"
+#include "cargo-utils/callback-guard.hpp"
+#include "cargo-utils/latch.hpp"
 
 #include <future>
 #include <thread>

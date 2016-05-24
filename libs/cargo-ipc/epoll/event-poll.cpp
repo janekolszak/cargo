@@ -25,8 +25,8 @@
 #include "config.hpp"
 
 #include "cargo-ipc/epoll/event-poll.hpp"
-#include "utils/fd-utils.hpp"
-#include "utils/exception.hpp"
+#include "cargo-utils/fd-utils.hpp"
+#include "cargo-utils/exception.hpp"
 #include "logger/logger.hpp"
 
 #include <sys/epoll.h>

@@ -26,8 +26,8 @@
 
 #include "cargo-ipc/exception.hpp"
 #include "cargo-ipc/internals/socket.hpp"
-#include "utils/fd-utils.hpp"
-#include "utils/exception.hpp"
+#include "cargo-utils/fd-utils.hpp"
+#include "cargo-utils/exception.hpp"
 #include "logger/logger.hpp"
 
 #ifdef HAVE_SYSTEMD

@@ -26,7 +26,7 @@
 #define CARGO_IPC_EPOLL_THREAD_DISPATCHER_HPP
 
 #include "cargo-ipc/epoll/event-poll.hpp"
-#include "utils/eventfd.hpp"
+#include "cargo-utils/eventfd.hpp"
 
 #include <thread>
 #include <atomic>

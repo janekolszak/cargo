@@ -27,8 +27,8 @@
 
 #include "ut.hpp"
 
-#include "utils/worker.hpp"
-#include "utils/latch.hpp"
+#include "cargo-utils/worker.hpp"
+#include "cargo-utils/latch.hpp"
 
 #include <chrono>
 #include <thread>

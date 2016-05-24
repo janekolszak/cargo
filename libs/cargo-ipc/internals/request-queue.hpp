@@ -26,7 +26,7 @@
 #define CARGO_IPC_INTERNALS_REQUEST_QUEUE_HPP
 
 #include "cargo-ipc/exception.hpp"
-#include "utils/eventfd.hpp"
+#include "cargo-utils/eventfd.hpp"
 #include "logger/logger.hpp"
 
 #include <list>

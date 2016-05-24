@@ -26,7 +26,7 @@
 
 #include "ut.hpp"
 
-#include "utils/text.hpp"
+#include "cargo-utils/text.hpp"
 
 BOOST_AUTO_TEST_SUITE(TextUtilsSuite)
 

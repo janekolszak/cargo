@@ -24,7 +24,7 @@
 #include "config.hpp"
 #include "ut.hpp"
 
-#include "utils/c-args.hpp"
+#include "cargo-utils/c-args.hpp"
 
 BOOST_AUTO_TEST_SUITE(UtilsCArgsSuite)
 

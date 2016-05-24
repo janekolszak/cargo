@@ -27,7 +27,7 @@
 
 #include "ut.hpp"
 
-#include "utils/counting-map.hpp"
+#include "cargo-utils/counting-map.hpp"
 
 BOOST_AUTO_TEST_SUITE(CountingMapSuite)
 

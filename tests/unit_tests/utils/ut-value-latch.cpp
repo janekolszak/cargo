@@ -27,7 +27,7 @@
 
 #include "ut.hpp"
 
-#include "utils/value-latch.hpp"
+#include "cargo-utils/value-latch.hpp"
 
 #include <thread>
 #include <string>

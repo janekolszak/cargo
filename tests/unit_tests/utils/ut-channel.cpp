@@ -25,8 +25,8 @@
 
 #include "ut.hpp"
 
-#include "utils/channel.hpp"
-#include "utils/execute.hpp"
+#include "cargo-utils/channel.hpp"
+#include "cargo-utils/execute.hpp"
 
 BOOST_AUTO_TEST_SUITE(ChannelSuite)
 

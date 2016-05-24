@@ -25,7 +25,7 @@
 #include "config.hpp"
 
 #include "logger/formatter.hpp"
-#include "utils/ccolor.hpp"
+#include "cargo-utils/ccolor.hpp"
 
 #include <unistd.h>
 #include <sys/time.h>

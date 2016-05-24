@@ -27,7 +27,7 @@
 
 #include "ut.hpp"
 
-#include "utils/paths.hpp"
+#include "cargo-utils/paths.hpp"
 
 #include <memory>
 

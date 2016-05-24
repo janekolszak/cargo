@@ -25,7 +25,7 @@
 #include "config.hpp"
 
 #include "cargo-ipc/epoll/glib-dispatcher.hpp"
-#include "utils/callback-wrapper.hpp"
+#include "cargo-utils/callback-wrapper.hpp"
 
 namespace cargo {
 namespace ipc {
