@@ -6,7 +6,7 @@
 
 Name:           cargo
 Epoch:          1
-Version:        0.1.2
+Version:        0.2.0
 Release:        0
 Source0:        %{name}-%{version}.tar.gz
 License:        Apache-2.0
