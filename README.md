@@ -1,4 +1,4 @@
-# Cargo
+# Cargo [![Build Status](https://travis-ci.org/janekolszak/cargo.svg?branch=master)](https://travis-ci.org/janekolszak/cargo)
 Cargo is a set of C++ libraries that provide support in data parsing and passing via Unix sockets.
 
 # Installation
