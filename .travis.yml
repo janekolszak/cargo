@@ -10,3 +10,4 @@ before_script:
 
 script:
  - docker-compose up gcc
+ - docker-compose up clang
