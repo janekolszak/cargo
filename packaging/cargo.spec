@@ -226,6 +226,40 @@ The package provides libcargo file descriptor I/O module.
 %{_includedir}/cargo-fd
 %{_libdir}/pkgconfig/libcargo-fd.pc
 
+## libcargo-epoll Package #####################################################
+%package -n libcargo-epoll
+Summary:            Cargo event polling wrapper and tools
+Group:              Security/Other
+Requires(post):     /sbin/ldconfig
+Requires(postun):   /sbin/ldconfig
+
+%description -n libcargo-epoll
+The package provides libcargo event polling tools.
+
+%post -n libcargo-epoll -p /sbin/ldconfig
+
+%postun -n libcargo-epoll -p /sbin/ldconfig
+
+%files -n libcargo-epoll
+%defattr(644,root,root,755)
+%{_libdir}/libcargo-epoll.so.0
+%attr(755,root,root) %{_libdir}/libcargo-epoll.so.%{version}
+
+%package -n libcargo-epoll-devel
+Summary:        Cargo event polling wrapper and tools
+Group:          Development/Libraries
+Requires:       libcargo-epoll = %{epoch}:%{version}-%{release}
+Requires:       pkgconfig(libLogger)
+
+%description -n libcargo-epoll-devel
+The package provides headers for libcargo event polling tools.
+
+%files -n libcargo-epoll-devel
+%defattr(644,root,root,755)
+%{_libdir}/libcargo-epoll.so
+%{_includedir}/cargo-epoll
+%{_libdir}/pkgconfig/libcargo-epoll.pc
+
 ## libcargo-sqlite-json Package ##########################################################
 %package -n libcargo-sqlite-json-devel
 Summary:        Cargo SQLite with Json defaults development module
