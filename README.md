@@ -2,11 +2,13 @@
 Cargo is a set of C++ libraries that provide support in data parsing and passing via Unix sockets.
 
 # Installation
-For now it's only possible to build and install all the Cargo libraries.
+For now it's only possible to build and install all the Cargo libraries. For example on Ubuntu 16.04 (after you install all the dependencies):
 
 ```
+sudo apt-get install -y cmake clang gcc libboost-test1.58-dev libboost-system1.58-dev libboost-filesystem1.58-dev libglib2.0-dev uuid-dev libsystemd-dev libjson-c-dev libsqlite3-dev
+
 mkdir build && cd build
-cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release ..
+cmake -DWITHOUT_SYSTEMD=1 -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release ..
 cmake --build . -- -j4
 sudo cmake --build . --target install
 ```
