@@ -1,0 +1,12 @@
+language: cpp
+
+sudo: required
+
+services:
+  - docker
+
+before_script:
+ - cd utils
+
+script:
+ - docker-compose up gcc
