@@ -30,6 +30,7 @@
 #define SD_JOURNAL_SUPPRESS_LOCATION
 #include <systemd/sd-journal.h>
 
+namespace cargo {
 namespace logger {
 
 namespace {
@@ -71,4 +72,6 @@ void SystemdJournalBackend::log(LogLevel logLevel,
 }
 
 } // namespace logger
+} // namespace cargo
+
 #endif // HAVE_SYSTEMD

@@ -35,6 +35,7 @@
 #include <thread>
 #include <atomic>
 
+namespace cargo {
 namespace logger {
 
 namespace {
@@ -133,3 +134,4 @@ std::string LogFormatter::getHeader(LogLevel logLevel,
 }
 
 } // namespace logger
+} // namespace cargo

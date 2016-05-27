@@ -33,7 +33,7 @@
 #include "cargo-utils/signal.hpp"
 
 using namespace boost::unit_test;
-using namespace logger;
+using namespace cargo::logger;
 
 test_suite* init_unit_test_suite(int /*argc*/, char** /*argv*/)
 {

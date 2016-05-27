@@ -36,7 +36,7 @@
 
 BOOST_AUTO_TEST_SUITE(LoggerSuite)
 
-using namespace logger;
+using namespace cargo::logger;
 
 namespace {
 

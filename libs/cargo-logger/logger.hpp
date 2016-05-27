@@ -22,11 +22,11 @@
  * @defgroup libcargo-logger libcargo-logger
  * @brief C++ library for handling logging.
  *
- * There are few backends implemented and it's possible to create your own by inheriting after the @ref logger::LogBackend interface.
+ * There are few backends implemented and it's possible to create your own by inheriting after the @ref cargo::logger::LogBackend interface.
  *
  * Example usage:
  * @code
- * using namespace logger;
+ * using namespace cargo::logger;
  *
  * // Set minimal logging level
  * Logger::setLogLevel("TRACE");
@@ -77,6 +77,7 @@
 #define PROJECT_SOURCE_DIR ""
 #endif
 
+namespace cargo {
 namespace logger {
 
 enum class LogType : int {
@@ -125,15 +126,16 @@ public:
 };
 
 } // namespace logger
+} // namespace cargo
 
 /*@{*/
 /// Generic logging macro
 #define LOG(SEVERITY, MESSAGE)                                             \
     do {                                                                   \
-        if (logger::Logger::getLogLevel() <= logger::LogLevel::SEVERITY) { \
+        if (cargo::logger::Logger::getLogLevel() <= cargo::logger::LogLevel::SEVERITY) { \
             std::ostringstream messageStream__;                            \
             messageStream__ << MESSAGE;                                    \
-            logger::Logger::logMessage(logger::LogLevel::SEVERITY,         \
+            cargo::logger::Logger::logMessage(cargo::logger::LogLevel::SEVERITY,         \
                                        messageStream__.str(),              \
                                        __FILE__,                           \
                                        __LINE__,                           \
@@ -164,8 +166,8 @@ public:
 
 #define RELOG(ISTREAM)                                                     \
     do {                                                                   \
-        if (logger::Logger::getLogLevel() <= logger::LogLevel::DEBUG) {    \
-            logger::Logger::logRelog(logger::LogLevel::DEBUG,              \
+        if (cargo::logger::Logger::getLogLevel() <= cargo::logger::LogLevel::DEBUG) {    \
+            cargo::logger::Logger::logRelog(cargo::logger::LogLevel::DEBUG,              \
                                      ISTREAM,                              \
                                      __FILE__,                             \
                                      __LINE__,                             \

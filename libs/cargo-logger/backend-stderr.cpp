@@ -30,6 +30,7 @@
 #include <iostream>
 #include <boost/tokenizer.hpp>
 
+namespace cargo {
 namespace logger {
 
 void StderrBackend::log(LogLevel logLevel,
@@ -75,3 +76,4 @@ void StderrBackend::relog(LogLevel logLevel,
 }
 
 } // namespace logger
+} // namespace cargo

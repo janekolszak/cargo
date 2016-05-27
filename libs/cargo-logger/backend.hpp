@@ -29,6 +29,7 @@
 
 #include <string>
 
+namespace cargo {
 namespace logger {
 
 /**
@@ -52,5 +53,6 @@ public:
 };
 
 } // namespace logger
+} // namespace cargo
 
 #endif // LOGGER_BACKEND_HPP

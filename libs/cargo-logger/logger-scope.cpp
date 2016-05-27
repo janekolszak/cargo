@@ -27,6 +27,7 @@
 #include "cargo-logger/logger-scope.hpp"
 #include "cargo-logger/logger.hpp"
 
+namespace cargo {
 namespace logger {
 
 SStreamWrapper::operator std::string() const
@@ -45,18 +46,19 @@ LoggerScope::LoggerScope(const std::string& file,
         mMessage(message),
         mRootDir(rootDir)
 {
-    if (logger::Logger::getLogLevel() <= logger::LogLevel::TRACE) {
-        logger::Logger::logMessage(logger::LogLevel::TRACE, "Entering: " + mMessage,
+    if (cargo::logger::Logger::getLogLevel() <= cargo::logger::LogLevel::TRACE) {
+        cargo::logger::Logger::logMessage(cargo::logger::LogLevel::TRACE, "Entering: " + mMessage,
                                    mFile, mLine, mFunc, mRootDir);
     }
 }
 
 LoggerScope::~LoggerScope()
 {
-    if (logger::Logger::getLogLevel() <= logger::LogLevel::TRACE) {
-        logger::Logger::logMessage(logger::LogLevel::TRACE, "Leaving:  " + mMessage,
+    if (cargo::logger::Logger::getLogLevel() <= cargo::logger::LogLevel::TRACE) {
+        cargo::logger::Logger::logMessage(cargo::logger::LogLevel::TRACE, "Leaving:  " + mMessage,
                                    mFile, mLine, mFunc, mRootDir);
     }
 }
 
 } // namespace logger
+} // namespace cargo

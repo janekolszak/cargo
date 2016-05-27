@@ -62,9 +62,9 @@ struct UtilsException : public std::runtime_error {
 
     void log() const
     {
-        if (logger::Logger::getLogLevel() <= logger::LogLevel::ERROR) {
+        if (cargo::logger::Logger::getLogLevel() <= cargo::logger::LogLevel::ERROR) {
         const std::string& msg = what();
-        logger::Logger::logMessage(logger::LogLevel::ERROR,
+        cargo::logger::Logger::logMessage(cargo::logger::LogLevel::ERROR,
                                    "[" + utils::getTypeName(*this) + "] " +
                                    (mErrno != 0 ? msg + ": " + getSystemErrorMessage(mErrno) + "(" + std::to_string(mErrno) + ")" : msg),
                                    mFile,

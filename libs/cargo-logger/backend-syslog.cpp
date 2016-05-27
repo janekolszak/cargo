@@ -29,6 +29,7 @@
 
 #include <syslog.h>
 #include <sstream>
+namespace cargo {
 namespace logger {
 
 namespace {
@@ -65,3 +66,4 @@ void SyslogBackend::log(LogLevel logLevel,
 }
 
 } // namespace logger
+} // namespace cargo

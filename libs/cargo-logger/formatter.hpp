@@ -29,6 +29,7 @@
 
 #include <string>
 
+namespace cargo {
 namespace logger {
 
 class LogFormatter {
@@ -46,5 +47,6 @@ public:
 };
 
 } // namespace logger
+} // namespace cargo
 
 #endif // LOGGER_FORMATTER_HPP

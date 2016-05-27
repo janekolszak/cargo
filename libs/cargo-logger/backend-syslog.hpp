@@ -27,6 +27,7 @@
 
 #include "cargo-logger/backend.hpp"
 
+namespace cargo {
 namespace logger {
 
 class SyslogBackend : public LogBackend {
@@ -39,5 +40,6 @@ public:
 };
 
 } // namespace logger
+} // namespace cargo
 
 #endif // LOGGER_BACKEND_SYSLOG_HPP

@@ -29,6 +29,7 @@
 #include <stdexcept>
 #include <boost/algorithm/string.hpp>
 
+namespace cargo {
 namespace logger {
 
 LogLevel parseLogLevel(const std::string& level)
@@ -70,3 +71,4 @@ std::string toString(const LogLevel logLevel)
     }
 }
 } // namespace logger
+} // namespace cargo

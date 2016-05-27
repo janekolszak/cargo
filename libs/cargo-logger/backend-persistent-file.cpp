@@ -29,6 +29,7 @@
 
 #include <fstream>
 
+namespace cargo {
 namespace logger {
 
 void PersistentFileBackend::log(LogLevel logLevel,
@@ -45,3 +46,4 @@ void PersistentFileBackend::log(LogLevel logLevel,
 
 
 } // namespace logger
+} // namespace cargo

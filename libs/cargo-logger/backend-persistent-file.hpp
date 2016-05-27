@@ -31,6 +31,7 @@
 #include <fstream>
 #include <ext/stdio_filebuf.h>
 
+namespace cargo {
 namespace logger {
 
 class PersistentFileBackend : public LogBackend {
@@ -55,5 +56,6 @@ private:
 };
 
 } // namespace logger
+} // namespace cargo
 
 #endif // LOGGER_BACKEND_PERSISTENT_FILE_HPP

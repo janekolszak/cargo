@@ -36,7 +36,7 @@
 using namespace socket_test;
 using namespace cargo::ipc;
 using namespace cargo::ipc::internals;
-using namespace logger;
+using namespace cargo::logger;
 
 /**
  * This is a single-usage program, only meant to test cargo::ipc::Socket module.

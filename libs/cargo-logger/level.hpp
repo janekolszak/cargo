@@ -27,6 +27,7 @@
 
 #include <string>
 
+namespace cargo {
 namespace logger {
 
 /**
@@ -55,5 +56,6 @@ std::string toString(const LogLevel logLevel);
 LogLevel parseLogLevel(const std::string& level);
 
 } // namespace logger
+} // namespace cargo
 
 #endif // LOGGER_LEVEL_HPP

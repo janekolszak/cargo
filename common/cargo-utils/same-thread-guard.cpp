@@ -35,13 +35,13 @@ namespace utils {
 
 namespace {
 
-typedef decltype(logger::LogFormatter::getCurrentThread()) ThreadId;
+typedef decltype(cargo::logger::LogFormatter::getCurrentThread()) ThreadId;
 const ThreadId NOT_SET = 0;
 
 ThreadId getCurrentThreadId() {
     // use the same thread id numbering mechanism as in logger
     // to allow analyse accesses in log
-    return logger::LogFormatter::getCurrentThread();
+    return cargo::logger::LogFormatter::getCurrentThread();
 }
 
 } // namespace

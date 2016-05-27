@@ -29,6 +29,7 @@
 
 #include <fstream>
 
+namespace cargo {
 namespace logger {
 
 void FileBackend::log(LogLevel logLevel,
@@ -45,3 +46,4 @@ void FileBackend::log(LogLevel logLevel,
 
 
 } // namespace logger
+} // namespace cargo

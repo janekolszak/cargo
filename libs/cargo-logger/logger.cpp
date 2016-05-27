@@ -31,6 +31,7 @@
 #include <memory>
 #include <mutex>
 
+namespace cargo {
 namespace logger {
 
 namespace {
@@ -125,3 +126,4 @@ void Logger::setLogBackend(LogBackend* pBackend)
 }
 
 } // namespace logger
+} // namespace cargo

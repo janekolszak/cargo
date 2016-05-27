@@ -27,6 +27,7 @@
 
 #include "cargo-logger/backend.hpp"
 
+namespace cargo {
 namespace logger {
 
 /**
@@ -50,5 +51,6 @@ private:
 };
 
 } // namespace logger
+} // namespace cargo
 
 #endif // LOGGER_BACKEND_STDERR_HPP
