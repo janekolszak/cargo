@@ -24,13 +24,11 @@
 
 #include "config.hpp"
 
-#include "cargo-ipc/epoll/events.hpp"
+#include "cargo-epoll/events.hpp"
 
 #include <sstream>
 
 namespace cargo {
-namespace ipc {
-namespace epoll {
 
 namespace {
 
@@ -69,6 +67,4 @@ std::string eventsToString(Events events)
     return ret;
 }
 
-} // namespace epoll
-} // namespace ipc
 } // namespace cargo

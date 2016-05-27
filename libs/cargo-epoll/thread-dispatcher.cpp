@@ -24,11 +24,9 @@
 
 #include "config.hpp"
 
-#include "cargo-ipc/epoll/thread-dispatcher.hpp"
+#include "cargo-epoll/thread-dispatcher.hpp"
 
 namespace cargo {
-namespace ipc {
-namespace epoll {
 
 ThreadDispatcher::ThreadDispatcher()
     : mStopped(false)
@@ -58,6 +56,4 @@ EventPoll& ThreadDispatcher::getPoll()
     return mPoll;
 }
 
-} // namespace epoll
-} // namespace ipc
 } // namespace cargo

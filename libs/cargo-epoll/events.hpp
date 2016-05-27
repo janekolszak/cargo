@@ -29,8 +29,6 @@
 #include <sys/epoll.h> // for EPOLL* constatnts
 
 namespace cargo {
-namespace ipc {
-namespace epoll {
 
 /**
  * @brief bitmask of EPOLL* constants
@@ -46,8 +44,6 @@ typedef unsigned int Events;
  */
 std::string eventsToString(Events events);
 
-} // namespace epoll
-} // namespace ipc
 } // namespace cargo
 
 #endif // CARGO_IPC_EPOLL_EVENTS_HPP

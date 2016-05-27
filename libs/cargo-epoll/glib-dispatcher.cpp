@@ -24,12 +24,10 @@
 
 #include "config.hpp"
 
-#include "cargo-ipc/epoll/glib-dispatcher.hpp"
+#include "cargo-epoll/glib-dispatcher.hpp"
 #include "cargo-utils/callback-wrapper.hpp"
 
 namespace cargo {
-namespace ipc {
-namespace epoll {
 
 GlibDispatcher::GlibDispatcher()
 {
@@ -64,6 +62,4 @@ EventPoll& GlibDispatcher::getPoll()
     return mPoll;
 }
 
-} // namespace epoll
-} // namespace ipc
 } // namespace cargo

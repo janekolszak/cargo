@@ -25,14 +25,12 @@
 #ifndef CARGO_IPC_EPOLL_GLIB_DISPATCHER_HPP
 #define CARGO_IPC_EPOLL_GLIB_DISPATCHER_HPP
 
-#include "cargo-ipc/epoll/event-poll.hpp"
+#include "cargo-epoll/event-poll.hpp"
 #include "cargo-utils/callback-guard.hpp"
 
 #include <gio/gio.h>
 
 namespace cargo {
-namespace ipc {
-namespace epoll {
 
 /**
  * Will dispatch poll events in glib thread
@@ -50,9 +48,6 @@ private:
     guint mWatchId;
 };
 
-
-} // namespace epoll
-} // namespace ipc
 } // namespace cargo
 
 #endif // CARGO_IPC_EPOLL_GLIB_DISPATCHER_HPP

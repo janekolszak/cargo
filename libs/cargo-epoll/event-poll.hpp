@@ -25,7 +25,7 @@
 #ifndef CARGO_IPC_EPOLL_EVENT_POLL_HPP
 #define CARGO_IPC_EPOLL_EVENT_POLL_HPP
 
-#include "cargo-ipc/epoll/events.hpp"
+#include "cargo-epoll/events.hpp"
 
 #include <functional>
 #include <mutex>
@@ -33,14 +33,12 @@
 #include <memory>
 
 namespace cargo {
-namespace ipc {
-namespace epoll {
 
 /**
  * @brief This class waits on registered file descriptor for events.
  * It uses epoll mechanism.
  *
- * @see cargo::ipc::epoll::Events
+ * @see cargo::Events
  *
  * @ingroup Types
  */
@@ -51,7 +49,7 @@ public:
      *
      * @param   fd      descriptor that triggered the event
      * @param   events  event mask that occured
-     * @see cargo::ipc::epoll::Events
+     * @see cargo::Events
      */
     typedef std::function<void(int fd, Events events)> Callback;
 
@@ -75,7 +73,7 @@ public:
      * @param events            events to associate with the descriptor
      * @param callback          callback to call once the event occurs
      * @throw UtilsException    thrown if descriptor already registered or add fail
-     * @see cargo::ipc::epoll::Events
+     * @see cargo::Events
      */
     void addFD(const int fd, const Events events, Callback&& callback);
 
@@ -84,7 +82,7 @@ public:
      * @param fd                watched descriptor, already registered
      * @param events            events to associate with the descriptor
      * @throw UtilsException    if descriptor not found or epoll modify fail
-     * @see cargo::ipc::epoll::Events
+     * @see cargo::Events
      */
     void modifyFD(const int fd, const Events events);
 
@@ -117,9 +115,6 @@ private:
     void removeFDInternal(const int fd);
 };
 
-
-} // namespace epoll
-} // namespace ipc
 } // namespace cargo
 
 #endif // CARGO_IPC_EPOLL_EVENT_POLL_HPP

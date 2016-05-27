@@ -24,7 +24,7 @@
 
 #include "config.hpp"
 
-#include "cargo-ipc/epoll/event-poll.hpp"
+#include "cargo-epoll/event-poll.hpp"
 #include "cargo-utils/fd-utils.hpp"
 #include "cargo-utils/exception.hpp"
 #include "logger/logger.hpp"
@@ -37,8 +37,6 @@
 using namespace utils;
 
 namespace cargo {
-namespace ipc {
-namespace epoll {
 
 EventPoll::EventPoll()
     : mPollFD(::epoll_create1(EPOLL_CLOEXEC))
@@ -176,6 +174,4 @@ void EventPoll::removeFDInternal(const int fd)
     }
 }
 
-} // namespace epoll
-} // namespace ipc
 } // namespace cargo
