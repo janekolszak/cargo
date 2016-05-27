@@ -28,8 +28,8 @@
 
 #ifdef ENABLE_SAME_THREAD_GUARD
 
-#include "logger/logger.hpp"
-#include "logger/formatter.hpp"
+#include "cargo-logger/logger.hpp"
+#include "cargo-logger/formatter.hpp"
 
 namespace utils {
 

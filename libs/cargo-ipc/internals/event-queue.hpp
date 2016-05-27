@@ -27,7 +27,7 @@
 
 #include "cargo-ipc/exception.hpp"
 #include "cargo-utils/eventfd.hpp"
-#include "logger/logger.hpp"
+#include "cargo-logger/logger.hpp"
 
 #include <string>
 #include <mutex>

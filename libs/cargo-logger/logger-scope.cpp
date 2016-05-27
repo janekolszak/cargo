@@ -24,8 +24,8 @@
 
 #include "config.hpp"
 
-#include "logger/logger-scope.hpp"
-#include "logger/logger.hpp"
+#include "cargo-logger/logger-scope.hpp"
+#include "cargo-logger/logger.hpp"
 
 namespace logger {
 

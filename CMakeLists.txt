@@ -161,7 +161,7 @@ ENDIF(NOT DEFINED PYTHON_SITELIB)
 ## Subdirectories ##############################################################
 SET(COMMON_FOLDER ${PROJECT_SOURCE_DIR}/common)
 SET(LIBS_FOLDER ${PROJECT_SOURCE_DIR}/libs)
-SET(LOGGER_FOLDER ${PROJECT_SOURCE_DIR}/libs/logger)
+SET(LOGGER_FOLDER ${PROJECT_SOURCE_DIR}/libs/cargo-logger)
 SET(CARGO_FOLDER ${PROJECT_SOURCE_DIR}/libs/cargo)
 SET(CARGO_JSON_FOLDER ${PROJECT_SOURCE_DIR}/libs/cargo-json)
 SET(CARGO_SQLITE_FOLDER ${PROJECT_SOURCE_DIR}/libs/cargo-sqlite)

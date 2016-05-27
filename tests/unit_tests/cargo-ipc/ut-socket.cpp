@@ -25,7 +25,7 @@
 #include "config.hpp"
 
 #include "ut.hpp"
-#include "logger/logger.hpp"
+#include "cargo-logger/logger.hpp"
 #include "cargo-ipc/internals/socket.hpp"
 
 #include <thread>

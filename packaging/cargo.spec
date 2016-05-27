@@ -61,8 +61,8 @@ The package provides libcargo-utils development tools and static library.
 %attr(755,root,root) %{_libdir}/libcargo-utils.a
 %{_includedir}/cargo-utils
 
-## libLogger Package ###########################################################
-%package -n libLogger
+## libcargo-logger Package ###########################################################
+%package -n libcargo-logger
 Summary:            Logger library
 Group:              Security/Other
 %if !%{without_systemd}
@@ -71,38 +71,38 @@ BuildRequires:      pkgconfig(libsystemd-journal)
 Requires(post):     /sbin/ldconfig
 Requires(postun):   /sbin/ldconfig
 
-%description -n libLogger
-The package provides libLogger library.
+%description -n libcargo-logger
+The package provides libcargo-logger library.
 
-%post -n libLogger -p /sbin/ldconfig
+%post -n libcargo-logger -p /sbin/ldconfig
 
-%postun -n libLogger -p /sbin/ldconfig
+%postun -n libcargo-logger -p /sbin/ldconfig
 
-%files -n libLogger
+%files -n libcargo-logger
 %defattr(644,root,root,755)
-%{_libdir}/libLogger.so.0
-%attr(755,root,root) %{_libdir}/libLogger.so.%{version}
+%{_libdir}/libcargo-logger.so.0
+%attr(755,root,root) %{_libdir}/libcargo-logger.so.%{version}
 
-%package -n libLogger-devel
+%package -n libcargo-logger-devel
 Summary:        Development logger library
 Group:          Development/Libraries
-Requires:       libLogger = %{epoch}:%{version}-%{release}
+Requires:       libcargo-logger = %{epoch}:%{version}-%{release}
 
-%description -n libLogger-devel
-The package provides libLogger development tools and libs.
+%description -n libcargo-logger-devel
+The package provides libcargo-logger development tools and libs.
 
-%files -n libLogger-devel
+%files -n libcargo-logger-devel
 %defattr(644,root,root,755)
-%{_libdir}/libLogger.so
+%{_libdir}/libcargo-logger.so
 %{_includedir}/logger
-%{_libdir}/pkgconfig/libLogger.pc
+%{_libdir}/pkgconfig/libcargo-logger.pc
 
 ## libcargo-devel Package ##########################################################
 %package -n libcargo-devel
 Summary:        Development C++ object serialization library
 Group:          Development/Libraries
 Requires:       boost-devel
-Requires:       pkgconfig(libLogger)
+Requires:       pkgconfig(libcargo-logger)
 
 %description -n libcargo-devel
 The package provides libcargo development tools and libs.
@@ -119,7 +119,7 @@ Group:          Development/Libraries
 BuildRequires:  pkgconfig(glib-2.0)
 Requires:       libcargo-devel = %{epoch}:%{version}-%{release}
 Requires:       boost-devel
-Requires:       pkgconfig(libLogger)
+Requires:       pkgconfig(libcargo-logger)
 
 %description -n libcargo-gvariant-devel
 The package provides libcargo GVariant development module.
@@ -135,7 +135,7 @@ Summary:        Development cargo Json module
 Group:          Development/Libraries
 Requires:       libcargo-devel = %{epoch}:%{version}-%{release}
 Requires:       boost-devel
-Requires:       pkgconfig(libLogger)
+Requires:       pkgconfig(libcargo-logger)
 %if %{platform_type} == "TIZEN"
 Requires:       libjson-devel >= 0.10
 BuildRequires:  libjson-devel >= 0.10
@@ -178,7 +178,7 @@ Group:          Development/Libraries
 Requires:       libcargo-sqlite = %{epoch}:%{version}-%{release}
 Requires:       pkgconfig(sqlite3)
 Requires:       boost-devel
-Requires:       pkgconfig(libLogger)
+Requires:       pkgconfig(libcargo-logger)
 Requires:       pkgconfig(libcargo)
 
 %description -n libcargo-sqlite-devel
@@ -215,7 +215,7 @@ Group:          Development/Libraries
 Requires:       libcargo-devel = %{epoch}:%{version}-%{release}
 Requires:       libcargo-fd = %{epoch}:%{version}-%{release}
 Requires:       boost-devel
-Requires:       pkgconfig(libLogger)
+Requires:       pkgconfig(libcargo-logger)
 
 %description -n libcargo-fd-devel
 The package provides libcargo file descriptor I/O module.
@@ -249,7 +249,7 @@ The package provides libcargo event polling tools.
 Summary:        Cargo event polling wrapper and tools
 Group:          Development/Libraries
 Requires:       libcargo-epoll = %{epoch}:%{version}-%{release}
-Requires:       pkgconfig(libLogger)
+Requires:       pkgconfig(libcargo-logger)
 
 %description -n libcargo-epoll-devel
 The package provides headers for libcargo event polling tools.
@@ -267,7 +267,7 @@ Group:          Development/Libraries
 Requires:       libcargo-sqlite-devel = %{epoch}:%{version}-%{release}
 Requires:       libcargo-json-devel = %{epoch}:%{version}-%{release}
 Requires:       boost-devel
-Requires:       pkgconfig(libLogger)
+Requires:       pkgconfig(libcargo-logger)
 
 %description -n libcargo-sqlite-json-devel
 The package provides libcargo SQLite with Json defaults development module.
@@ -307,7 +307,7 @@ Summary:        Development cargo IPC library
 Group:          Development/Libraries
 Requires:       libcargo-ipc = %{epoch}:%{version}-%{release}
 Requires:       pkgconfig(libcargo-fd)
-Requires:       pkgconfig(libLogger)
+Requires:       pkgconfig(libcargo-logger)
 Requires:       pkgconfig(libcargo)
 
 %description -n libcargo-ipc-devel
@@ -343,7 +343,7 @@ The package provides libcargo-validator library.
 Summary:        Development Cargo Validator library
 Group:          Development/Libraries
 Requires:       libcargo-validator = %{epoch}:%{version}-%{release}
-Requires:       pkgconfig(libLogger)
+Requires:       pkgconfig(libcargo-logger)
 Requires:       pkgconfig(libcargo)
 
 %description -n libcargo-validator-devel

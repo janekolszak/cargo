@@ -25,7 +25,7 @@
 #ifdef HAVE_SYSTEMD
 #include "config.hpp"
 
-#include "logger/backend-journal.hpp"
+#include "cargo-logger/backend-journal.hpp"
 
 #define SD_JOURNAL_SUPPRESS_LOCATION
 #include <systemd/sd-journal.h>

@@ -24,8 +24,8 @@
 
 #include "config.hpp"
 
-#include "logger/backend-stderr.hpp"
-#include "logger/formatter.hpp"
+#include "cargo-logger/backend-stderr.hpp"
+#include "cargo-logger/formatter.hpp"
 
 #include <iostream>
 #include <boost/tokenizer.hpp>

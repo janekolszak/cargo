@@ -24,9 +24,9 @@
 
 #include "config.hpp"
 
-#include "logger/logger.hpp"
-#include "logger/formatter.hpp"
-#include "logger/backend-null.hpp"
+#include "cargo-logger/logger.hpp"
+#include "cargo-logger/formatter.hpp"
+#include "cargo-logger/backend-null.hpp"
 
 #include <memory>
 #include <mutex>

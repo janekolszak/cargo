@@ -49,7 +49,7 @@ SET_TARGET_PROPERTIES(${UT_SERVER_CODENAME} PROPERTIES
 )
 
 TARGET_LINK_LIBRARIES(${UT_SERVER_CODENAME} ${Boost_LIBRARIES}
-                      Logger ${JSON_C_LIBRARIES} cargo-sqlite cargo-fd cargo-ipc cargo-validator)
+                      cargo-logger ${JSON_C_LIBRARIES} cargo-sqlite cargo-fd cargo-ipc cargo-validator)
 
 IF(NOT WITHOUT_SYSTEMD)
 SET_TARGET_PROPERTIES(${SOCKET_TEST_CODENAME} PROPERTIES
@@ -57,7 +57,7 @@ SET_TARGET_PROPERTIES(${SOCKET_TEST_CODENAME} PROPERTIES
     LINK_FLAGS "-pthread"
 )
 
-TARGET_LINK_LIBRARIES(${SOCKET_TEST_CODENAME} ${Boost_LIBRARIES} Logger cargo-ipc)
+TARGET_LINK_LIBRARIES(${SOCKET_TEST_CODENAME} ${Boost_LIBRARIES} cargo-logger cargo-ipc)
 ENDIF(NOT WITHOUT_SYSTEMD)
 
 ## Subdirectories ##############################################################

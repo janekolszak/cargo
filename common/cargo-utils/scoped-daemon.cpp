@@ -27,7 +27,7 @@
 #include "cargo-utils/scoped-daemon.hpp"
 #include "cargo-utils/execute.hpp"
 
-#include "logger/logger.hpp"
+#include "cargo-logger/logger.hpp"
 
 #include <unistd.h>
 #include <sys/wait.h>

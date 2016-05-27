@@ -19,7 +19,7 @@
 /**
  * @file
  * @author   Jan Olszak (j.olszak@samsung.com)
- * @defgroup libLogger libLogger
+ * @defgroup libcargo-logger libcargo-logger
  * @brief C++ library for handling logging.
  *
  * There are few backends implemented and it's possible to create your own by inheriting after the @ref logger::LogBackend interface.
@@ -60,15 +60,15 @@
 #ifndef LOGGER_LOGGER_HPP
 #define LOGGER_LOGGER_HPP
 
-#include "logger/level.hpp"
-#include "logger/backend-null.hpp"
+#include "cargo-logger/level.hpp"
+#include "cargo-logger/backend-null.hpp"
 #ifdef HAVE_SYSTEMD
-#include "logger/backend-journal.hpp"
+#include "cargo-logger/backend-journal.hpp"
 #endif
-#include "logger/backend-file.hpp"
-#include "logger/backend-persistent-file.hpp"
-#include "logger/backend-syslog.hpp"
-#include "logger/backend-stderr.hpp"
+#include "cargo-logger/backend-file.hpp"
+#include "cargo-logger/backend-persistent-file.hpp"
+#include "cargo-logger/backend-syslog.hpp"
+#include "cargo-logger/backend-stderr.hpp"
 
 #include <sstream>
 #include <string>

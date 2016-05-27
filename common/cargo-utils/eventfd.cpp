@@ -27,7 +27,7 @@
 #include "cargo-utils/eventfd.hpp"
 #include "cargo-utils/exception.hpp"
 #include "cargo-utils/fd-utils.hpp"
-#include "logger/logger.hpp"
+#include "cargo-logger/logger.hpp"
 
 #include <sys/eventfd.h>
 #include <cerrno>

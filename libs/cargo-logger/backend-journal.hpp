@@ -1,7 +1,7 @@
 /*
- *  Copyright (c) 2015 Samsung Electronics Co., Ltd All Rights Reserved
+ *  Copyright (c) 2014 Samsung Electronics Co., Ltd All Rights Reserved
  *
- *  Contact: Roman Kubiak (r.kubiak@samsung.com)
+ *  Contact: Dariusz Michaluk <d.michaluk@samsung.com>
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -18,29 +18,29 @@
 
 /**
  * @file
- * @author  Roman Kubiak (r.kubiak@samsung.com)
- * @brief   File backend for logger
+ * @author  Dariusz Michaluk (d.michaluk@samsung.com)
+ * @brief   Systemd journal backend for logger
  */
 
-#ifndef LOGGER_BACKEND_FILE_HPP
-#define LOGGER_BACKEND_FILE_HPP
+#ifndef LOGGER_BACKEND_JOURNAL_HPP
+#define LOGGER_BACKEND_JOURNAL_HPP
 
-#include "logger/backend.hpp"
+#include "cargo-logger/backend.hpp"
 
 namespace logger {
 
-class FileBackend : public LogBackend {
+/**
+ * systemd journal logging backend
+ */
+class SystemdJournalBackend : public LogBackend {
 public:
-    FileBackend(const std::string& filePath) : mfilePath(filePath) {}
     void log(LogLevel logLevel,
              const std::string& file,
              const unsigned int& line,
              const std::string& func,
              const std::string& message) override;
-private:
-    std::string mfilePath;
 };
 
 } // namespace logger
 
-#endif // LOGGER_BACKEND_FILE_HPP
+#endif // LOGGER_BACKEND_JOURNAL_HPP

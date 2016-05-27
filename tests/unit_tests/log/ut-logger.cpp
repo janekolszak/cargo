@@ -26,11 +26,11 @@
 #include "config.hpp"
 
 #include "ut.hpp"
-#include "logger/logger.hpp"
-#include "logger/logger-scope.hpp"
-#include "logger/formatter.hpp"
-#include "logger/backend.hpp"
-#include "logger/backend-stderr.hpp"
+#include "cargo-logger/logger.hpp"
+#include "cargo-logger/logger-scope.hpp"
+#include "cargo-logger/formatter.hpp"
+#include "cargo-logger/backend.hpp"
+#include "cargo-logger/backend-stderr.hpp"
 
 #include <stdexcept>
 

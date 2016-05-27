@@ -26,7 +26,7 @@
 
 #include "cargo-ipc/service.hpp"
 #include "cargo-ipc/exception.hpp"
-#include "logger/logger.hpp"
+#include "cargo-logger/logger.hpp"
 
 using namespace std::placeholders;
 using namespace cargo::ipc::internals;

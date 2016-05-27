@@ -26,7 +26,7 @@
 
 #include "cargo-utils/signal.hpp"
 #include "cargo-utils/exception.hpp"
-#include "logger/logger.hpp"
+#include "cargo-logger/logger.hpp"
 
 #include <string>
 #include <cerrno>

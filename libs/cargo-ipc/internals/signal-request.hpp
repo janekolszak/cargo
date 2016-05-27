@@ -26,7 +26,7 @@
 #define CARGO_IPC_INTERNALS_SIGNAL_REQUEST_HPP
 
 #include "cargo-ipc/types.hpp"
-#include "logger/logger-scope.hpp"
+#include "cargo-logger/logger-scope.hpp"
 
 namespace cargo {
 namespace ipc {

@@ -25,8 +25,8 @@
 
 #include "config.hpp"
 
-#include "logger/logger.hpp"
-#include "logger/backend-stderr.hpp"
+#include "cargo-logger/logger.hpp"
+#include "cargo-logger/backend-stderr.hpp"
 
 #include <boost/test/included/unit_test.hpp>
 

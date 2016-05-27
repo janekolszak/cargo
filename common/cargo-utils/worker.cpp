@@ -27,7 +27,7 @@
 #include "cargo-utils/worker.hpp"
 #include "cargo-utils/latch.hpp"
 #include "cargo-utils/counting-map.hpp"
-#include "logger/logger.hpp"
+#include "cargo-logger/logger.hpp"
 
 #include <atomic>
 #include <deque>

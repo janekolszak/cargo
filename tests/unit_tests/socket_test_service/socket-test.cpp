@@ -25,8 +25,8 @@
 #include "config.hpp"
 
 #include "socket-test.hpp"
-#include "logger/logger.hpp"
-#include "logger/backend-journal.hpp"
+#include "cargo-logger/logger.hpp"
+#include "cargo-logger/backend-journal.hpp"
 #include "cargo-ipc/internals/socket.hpp"
 #include "cargo-ipc/exception.hpp"
 

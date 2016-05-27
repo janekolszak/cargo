@@ -1,7 +1,7 @@
 /*
  *  Copyright (c) 2014 Samsung Electronics Co., Ltd All Rights Reserved
  *
- *  Contact: Dariusz Michaluk <d.michaluk@samsung.com>
+ *  Contact: Pawel Broda <p.broda@partner.samsung.com>
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -18,29 +18,37 @@
 
 /**
  * @file
- * @author  Dariusz Michaluk (d.michaluk@samsung.com)
- * @brief   Systemd journal backend for logger
+ * @author  Pawel Broda (p.broda@partner.samsung.com)
+ * @brief   Stderr backend for logger
  */
 
-#ifndef LOGGER_BACKEND_JOURNAL_HPP
-#define LOGGER_BACKEND_JOURNAL_HPP
+#ifndef LOGGER_BACKEND_STDERR_HPP
+#define LOGGER_BACKEND_STDERR_HPP
 
-#include "logger/backend.hpp"
+#include "cargo-logger/backend.hpp"
 
 namespace logger {
 
 /**
- * systemd journal logging backend
+ * Stderr logging backend
  */
-class SystemdJournalBackend : public LogBackend {
+class StderrBackend : public LogBackend {
 public:
+    StderrBackend(const bool useColours = true) : mUseColours(useColours) {}
     void log(LogLevel logLevel,
              const std::string& file,
              const unsigned int& line,
              const std::string& func,
              const std::string& message) override;
+    void relog(LogLevel logLevel,
+               const std::string& file,
+               const unsigned int& line,
+               const std::string& func,
+               const std::istream& stream) override;
+private:
+    bool mUseColours;
 };
 
 } // namespace logger
 
-#endif // LOGGER_BACKEND_JOURNAL_HPP
+#endif // LOGGER_BACKEND_STDERR_HPP

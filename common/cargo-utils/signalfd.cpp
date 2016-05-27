@@ -28,7 +28,7 @@
 #include "cargo-utils/signal.hpp"
 #include "cargo-utils/fd-utils.hpp"
 #include "cargo-utils/exception.hpp"
-#include "logger/logger.hpp"
+#include "cargo-logger/logger.hpp"
 
 #include <functional>
 

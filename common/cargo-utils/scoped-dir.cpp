@@ -27,7 +27,7 @@
 #include "cargo-utils/scoped-dir.hpp"
 #include "cargo-utils/fs.hpp"
 #include "cargo-utils/exception.hpp"
-#include "logger/logger.hpp"
+#include "cargo-logger/logger.hpp"
 
 namespace utils {
 

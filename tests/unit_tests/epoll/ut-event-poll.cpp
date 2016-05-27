@@ -28,7 +28,7 @@
 #include "ut.hpp"
 
 #include "cargo-ipc/epoll/event-poll.hpp"
-#include "logger/logger.hpp"
+#include "cargo-logger/logger.hpp"
 #include "cargo-ipc/internals/socket.hpp"
 #include "cargo-utils/value-latch.hpp"
 #include "cargo-utils/glib-loop.hpp"

@@ -28,7 +28,7 @@
 #include "cargo-ipc/internals/socket.hpp"
 #include "cargo-utils/fd-utils.hpp"
 #include "cargo-utils/exception.hpp"
-#include "logger/logger.hpp"
+#include "cargo-logger/logger.hpp"
 
 #ifdef HAVE_SYSTEMD
 #include <systemd/sd-daemon.h>

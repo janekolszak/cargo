@@ -24,7 +24,7 @@
 
 #include "config.hpp"
 
-#include "logger/level.hpp"
+#include "cargo-logger/level.hpp"
 
 #include <stdexcept>
 #include <boost/algorithm/string.hpp>

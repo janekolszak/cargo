@@ -26,7 +26,7 @@
 #ifndef COMMON_UTILS_EXCEPTION_HPP
 #define COMMON_UTILS_EXCEPTION_HPP
 
-#include "logger/logger.hpp"
+#include "cargo-logger/logger.hpp"
 #include <vector>
 #include "cargo-utils/typeinfo.hpp"
 #include <stdexcept>

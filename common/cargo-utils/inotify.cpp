@@ -30,8 +30,8 @@
 #include "cargo-utils/fd-utils.hpp"
 #include "cargo-utils/exception.hpp"
 
-#include "logger/logger.hpp"
-#include "logger/logger-scope.hpp"
+#include "cargo-logger/logger.hpp"
+#include "cargo-logger/logger-scope.hpp"
 
 #include <sys/ioctl.h>
 

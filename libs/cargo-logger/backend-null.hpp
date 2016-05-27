@@ -19,36 +19,28 @@
 /**
  * @file
  * @author  Pawel Broda (p.broda@partner.samsung.com)
- * @brief   Stderr backend for logger
+ * @brief   Null backend for logger
  */
 
-#ifndef LOGGER_BACKEND_STDERR_HPP
-#define LOGGER_BACKEND_STDERR_HPP
+#ifndef LOGGER_BACKEND_NULL_HPP
+#define LOGGER_BACKEND_NULL_HPP
 
-#include "logger/backend.hpp"
+#include "cargo-logger/backend.hpp"
 
 namespace logger {
 
 /**
- * Stderr logging backend
+ * Null logging backend
  */
-class StderrBackend : public LogBackend {
+class NullLogger : public LogBackend {
 public:
-    StderrBackend(const bool useColours = true) : mUseColours(useColours) {}
-    void log(LogLevel logLevel,
-             const std::string& file,
-             const unsigned int& line,
-             const std::string& func,
-             const std::string& message) override;
-    void relog(LogLevel logLevel,
-               const std::string& file,
-               const unsigned int& line,
-               const std::string& func,
-               const std::istream& stream) override;
-private:
-    bool mUseColours;
+    void log(LogLevel            /*logLevel*/,
+             const std::string&  /*file*/,
+             const unsigned int& /*line*/,
+             const std::string&  /*func*/,
+             const std::string&  /*message*/) override {}
 };
 
 } // namespace logger
 
-#endif // LOGGER_BACKEND_STDERR_HPP
+#endif // LOGGER_BACKEND_NULL_HPP

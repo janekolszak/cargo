@@ -1,7 +1,7 @@
 /*
- *  Copyright (c) 2014 Samsung Electronics Co., Ltd All Rights Reserved
+ *  Copyright (c) 2015 Samsung Electronics Co., Ltd All Rights Reserved
  *
- *  Contact: Pawel Broda <p.broda@partner.samsung.com>
+ *  Contact: Roman Kubiak (r.kubiak@samsung.com)
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -18,29 +18,26 @@
 
 /**
  * @file
- * @author  Pawel Broda (p.broda@partner.samsung.com)
- * @brief   Null backend for logger
+ * @author  Roman Kubiak (r.kubiak@samsung.com)
+ * @brief   Syslog backend for logger
  */
 
-#ifndef LOGGER_BACKEND_NULL_HPP
-#define LOGGER_BACKEND_NULL_HPP
+#ifndef LOGGER_BACKEND_SYSLOG_HPP
+#define LOGGER_BACKEND_SYSLOG_HPP
 
-#include "logger/backend.hpp"
+#include "cargo-logger/backend.hpp"
 
 namespace logger {
 
-/**
- * Null logging backend
- */
-class NullLogger : public LogBackend {
+class SyslogBackend : public LogBackend {
 public:
-    void log(LogLevel            /*logLevel*/,
-             const std::string&  /*file*/,
-             const unsigned int& /*line*/,
-             const std::string&  /*func*/,
-             const std::string&  /*message*/) override {}
+    void log(LogLevel logLevel,
+             const std::string& file,
+             const unsigned int& line,
+             const std::string& func,
+             const std::string& message) override;
 };
 
 } // namespace logger
 
-#endif // LOGGER_BACKEND_NULL_HPP
+#endif // LOGGER_BACKEND_SYSLOG_HPP

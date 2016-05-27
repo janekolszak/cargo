@@ -19,25 +19,28 @@
 /**
  * @file
  * @author  Roman Kubiak (r.kubiak@samsung.com)
- * @brief   Syslog backend for logger
+ * @brief   File backend for logger
  */
 
-#ifndef LOGGER_BACKEND_SYSLOG_HPP
-#define LOGGER_BACKEND_SYSLOG_HPP
+#ifndef LOGGER_BACKEND_FILE_HPP
+#define LOGGER_BACKEND_FILE_HPP
 
-#include "logger/backend.hpp"
+#include "cargo-logger/backend.hpp"
 
 namespace logger {
 
-class SyslogBackend : public LogBackend {
+class FileBackend : public LogBackend {
 public:
+    FileBackend(const std::string& filePath) : mfilePath(filePath) {}
     void log(LogLevel logLevel,
              const std::string& file,
              const unsigned int& line,
              const std::string& func,
              const std::string& message) override;
+private:
+    std::string mfilePath;
 };
 
 } // namespace logger
 
-#endif // LOGGER_BACKEND_SYSLOG_HPP
+#endif // LOGGER_BACKEND_FILE_HPP

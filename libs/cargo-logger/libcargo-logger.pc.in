@@ -5,7 +5,7 @@ exec_prefix=@CMAKE_INSTALL_PREFIX@
 libdir=@LIB_INSTALL_DIR@
 includedir=@INCLUDE_INSTALL_DIR@
 
-Name: libLogger
+Name: libcargo-logger
 Description: Logger library
 Version: @_LIB_VERSION_@
 Libs: -L${libdir} -l@PROJECT_NAME@

@@ -24,8 +24,8 @@
 
 #include "config.hpp"
 
-#include "logger/formatter.hpp"
-#include "logger/backend-syslog.hpp"
+#include "cargo-logger/formatter.hpp"
+#include "cargo-logger/backend-syslog.hpp"
 
 #include <syslog.h>
 #include <sstream>

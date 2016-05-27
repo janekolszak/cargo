@@ -27,7 +27,7 @@
 #include "cargo-utils/channel.hpp"
 #include "cargo-utils/exception.hpp"
 
-#include "logger/logger.hpp"
+#include "cargo-logger/logger.hpp"
 
 #include <fcntl.h>
 #include <unistd.h>

@@ -25,7 +25,7 @@
 #ifndef LOGGER_BACKEND_PERSISTENT_FILE_HPP
 #define LOGGER_BACKEND_PERSISTENT_FILE_HPP
 
-#include "logger/backend.hpp"
+#include "cargo-logger/backend.hpp"
 
 #include <fcntl.h>
 #include <fstream>

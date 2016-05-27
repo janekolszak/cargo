@@ -28,7 +28,7 @@
 #include "cargo-ipc/internals/result-builder.hpp"
 #include "cargo-ipc/types.hpp"
 #include "cargo-ipc/result.hpp"
-#include "logger/logger-scope.hpp"
+#include "cargo-logger/logger-scope.hpp"
 #include "cargo-fd/cargo-fd.hpp"
 #include <utility>
 

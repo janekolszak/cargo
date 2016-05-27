@@ -25,7 +25,7 @@
 #include "config.hpp"
 
 #include "cargo-ipc/internals/acceptor.hpp"
-#include "logger/logger.hpp"
+#include "cargo-logger/logger.hpp"
 
 #include <functional>
 

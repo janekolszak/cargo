@@ -37,7 +37,7 @@
 #include <stdexcept>
 #include <chrono>
 #include <thread>
-#include "logger/logger.hpp"
+#include "cargo-logger/logger.hpp"
 
 namespace utils {
 

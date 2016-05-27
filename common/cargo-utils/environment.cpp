@@ -29,7 +29,7 @@
 #include "cargo-utils/exception.hpp"
 #include "cargo-utils/make-clean.hpp"
 #include "cargo-utils/fd-utils.hpp"
-#include "logger/logger.hpp"
+#include "cargo-logger/logger.hpp"
 
 #include <grp.h>
 #include <sys/types.h>

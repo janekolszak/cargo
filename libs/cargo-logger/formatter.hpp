@@ -25,7 +25,7 @@
 #ifndef LOGGER_FORMATTER_HPP
 #define LOGGER_FORMATTER_HPP
 
-#include "logger/level.hpp"
+#include "cargo-logger/level.hpp"
 
 #include <string>
 

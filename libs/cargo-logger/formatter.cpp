@@ -24,7 +24,7 @@
 
 #include "config.hpp"
 
-#include "logger/formatter.hpp"
+#include "cargo-logger/formatter.hpp"
 #include "cargo-utils/ccolor.hpp"
 
 #include <unistd.h>

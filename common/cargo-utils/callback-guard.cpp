@@ -25,7 +25,7 @@
 #include "config.hpp"
 
 #include "cargo-utils/callback-guard.hpp"
-#include "logger/logger.hpp"
+#include "cargo-logger/logger.hpp"
 
 #include <mutex>
 #include <condition_variable>

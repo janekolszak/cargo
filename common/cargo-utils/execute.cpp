@@ -26,7 +26,7 @@
 
 #include "cargo-utils/exception.hpp"
 #include "cargo-utils/execute.hpp"
-#include "logger/logger.hpp"
+#include "cargo-logger/logger.hpp"
 
 #include <iostream>
 

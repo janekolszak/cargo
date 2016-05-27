@@ -26,7 +26,7 @@
 
 #include "cargo-ipc/types.hpp"
 #include "cargo-ipc/unique-id.hpp"
-#include "logger/logger.hpp"
+#include "cargo-logger/logger.hpp"
 
 #include <mutex>
 

@@ -26,7 +26,7 @@
 #define CARGO_IPC_METHOD_RESULT_HPP
 
 #include "cargo-ipc/types.hpp"
-#include "logger/logger.hpp"
+#include "cargo-logger/logger.hpp"
 #include <memory>
 
 namespace cargo {

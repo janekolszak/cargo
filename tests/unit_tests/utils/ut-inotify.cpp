@@ -32,7 +32,7 @@
 #include "cargo-utils/scoped-dir.hpp"
 #include "cargo-utils/value-latch.hpp"
 
-#include "logger/logger.hpp"
+#include "cargo-logger/logger.hpp"
 
 #include "cargo-ipc/epoll/event-poll.hpp"
 #include "cargo-ipc/epoll/thread-dispatcher.hpp"

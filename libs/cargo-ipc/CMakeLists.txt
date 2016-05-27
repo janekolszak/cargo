@@ -44,7 +44,7 @@ SET_TARGET_PROPERTIES(${PROJECT_NAME} PROPERTIES
     VERSION     ${_LIB_VERSION_}
     )
 
-ADD_DEPENDENCIES(${PROJECT_NAME} cargo-utils Logger cargo-fd)
+ADD_DEPENDENCIES(${PROJECT_NAME} cargo-utils cargo-logger cargo-fd)
 
 ## Link libraries ##############################################################
 IF(WITHOUT_SYSTEMD)
@@ -55,7 +55,7 @@ ENDIF(WITHOUT_SYSTEMD)
 
 INCLUDE_DIRECTORIES(${LIBS_FOLDER} ${COMMON_FOLDER})
 INCLUDE_DIRECTORIES(SYSTEM ${CARGO_IPC_DEPS_INCLUDE_DIRS})
-TARGET_LINK_LIBRARIES(${PROJECT_NAME} cargo-utils ${CARGO_IPC_DEPS_LIBRARIES} Logger cargo-fd)
+TARGET_LINK_LIBRARIES(${PROJECT_NAME} cargo-utils ${CARGO_IPC_DEPS_LIBRARIES} cargo-logger cargo-fd)
 
 ## Generate the pc file ########################################################
 CONFIGURE_FILE(${PC_FILE}.in ${CMAKE_CURRENT_BINARY_DIR}/${PC_FILE} @ONLY)

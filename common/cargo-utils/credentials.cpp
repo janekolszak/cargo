@@ -24,7 +24,7 @@
 
 #include "cargo-utils/credentials.hpp"
 #include "cargo-utils/exception.hpp"
-#include "logger/logger.hpp"
+#include "cargo-logger/logger.hpp"
 
 #include <unistd.h>
 #include <grp.h>

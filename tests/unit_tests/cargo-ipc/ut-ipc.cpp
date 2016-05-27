@@ -42,7 +42,7 @@
 #include "cargo-utils/scoped-dir.hpp"
 
 #include "cargo/fields.hpp"
-#include "logger/logger.hpp"
+#include "cargo-logger/logger.hpp"
 
 #include <boost/filesystem.hpp>
 #include <fstream>

@@ -41,8 +41,8 @@
 #include "cargo-ipc/types.hpp"
 #include "cargo-fd/cargo-fd.hpp"
 #include "cargo/fields.hpp"
-#include "logger/logger.hpp"
-#include "logger/logger-scope.hpp"
+#include "cargo-logger/logger.hpp"
+#include "cargo-logger/logger-scope.hpp"
 
 #include <ostream>
 #include <condition_variable>

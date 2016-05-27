@@ -25,7 +25,7 @@
 #include "config.hpp"
 
 #include "cargo-utils/vt.hpp"
-#include "logger/logger.hpp"
+#include "cargo-logger/logger.hpp"
 #include "cargo-utils/exception.hpp"
 #include "cargo-utils/fd-utils.hpp"
 

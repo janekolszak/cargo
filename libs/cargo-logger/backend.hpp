@@ -25,7 +25,7 @@
 #ifndef LOGGER_BACKEND_HPP
 #define LOGGER_BACKEND_HPP
 
-#include "logger/level.hpp"
+#include "cargo-logger/level.hpp"
 
 #include <string>
 
@@ -33,7 +33,7 @@ namespace logger {
 
 /**
  * @brief Abstract class for logger backends
- * @ingroup libLogger
+ * @ingroup libcargo-logger
  */
 class LogBackend {
 public:

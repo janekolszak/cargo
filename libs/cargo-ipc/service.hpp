@@ -30,7 +30,7 @@
 #include "cargo-ipc/types.hpp"
 #include "cargo-ipc/result.hpp"
 #include "epoll/event-poll.hpp"
-#include "logger/logger.hpp"
+#include "cargo-logger/logger.hpp"
 
 #include <string>
 

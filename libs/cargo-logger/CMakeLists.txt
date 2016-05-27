@@ -17,10 +17,10 @@
 # @author Dariusz Michaluk (d.michaluk@samsung.com)
 #
 
-PROJECT(Logger)
+PROJECT(cargo-logger)
 
 MESSAGE(STATUS "")
-MESSAGE(STATUS "Generating makefile for the libLogger...")
+MESSAGE(STATUS "Generating makefile for the libcargo-logger...")
 FILE(GLOB HEADERS   *.hpp
                     ${COMMON_FOLDER}/config.hpp)
 FILE(GLOB SRCS      *.cpp *.hpp)
