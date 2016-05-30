@@ -29,11 +29,13 @@
 #include "cargo-validator/internals/validator-visitor.hpp"
 
 namespace cargo {
+namespace validator {
+namespace internals {
 
 template <typename T>
 struct isValidableHelper__ {
     template <typename C> static std::true_type
-    test(decltype(std::declval<C>().template accept(cargo::validator::ValidatorVisitor()))*);
+    test(decltype(std::declval<C>().template accept(cargo::validator::internals::ValidatorVisitor()))*);
 
     template <typename C> static std::false_type
     test(...);
@@ -47,6 +49,8 @@ struct isValidableHelper__ {
 template <typename T>
 struct isValidable : public std::integral_constant<bool, isValidableHelper__<T>::value> {};
 
+} // namespace internals
+} // namespace validator
 } // namespace cargo
 
 #endif // CARGO_VALIDATOR_INTERNALS_IS_VALIDABLE_HPP

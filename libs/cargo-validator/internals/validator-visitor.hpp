@@ -33,6 +33,7 @@
 
 namespace cargo {
 namespace validator {
+namespace internals {
 
 class ValidatorVisitor {
 public:
@@ -71,6 +72,7 @@ public:
     }
 };
 
+} // namespace internals
 } // namespace validator
 } // namespace cargo
 

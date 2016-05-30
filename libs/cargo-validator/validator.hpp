@@ -36,10 +36,10 @@ namespace cargo {
 /*@{*/
 
 
-#define CARGO_VALIDATE(...)                                     \
-    void accept(cargo::validator::ValidatorVisitor v) const {   \
-        __VA_ARGS__                                             \
-    }                                                           \
+#define CARGO_VALIDATE(...)                                                \
+    void accept(cargo::validator::internals::ValidatorVisitor v) const {   \
+        __VA_ARGS__                                                        \
+    }                                                                      \
 
 #define CARGO_CHECK(func, ...)                                  \
     GENERATE_ELEMENTS_FOR_FUNC_(func, __VA_ARGS__)              \
@@ -55,8 +55,8 @@ namespace cargo {
 #define CARGO_COMPARE(func, arg_A, arg_B)                         \
     v.visit(func, #arg_A, arg_A, #arg_B, arg_B);                  \
 
-namespace validator
-{
+namespace validator {
+
 /**
  * pre-defined checks
  */
@@ -76,6 +76,8 @@ bool isDirectoryPresent(const std::string &path);
 template <class Cargo>
 void validate(const Cargo& visitable)
 {
+    using namespace cargo::validator::internals;
+
     static_assert(isValidable<Cargo>::value, "Use CARGO_VALIDATE macro");
 
     ValidatorVisitor visitor;
