@@ -28,6 +28,7 @@
 #include "cargo-utils/callback-wrapper.hpp"
 
 namespace cargo {
+namespace epoll {
 
 GlibDispatcher::GlibDispatcher()
 {
@@ -62,4 +63,5 @@ EventPoll& GlibDispatcher::getPoll()
     return mPoll;
 }
 
+} // namespace epoll
 } // namespace cargo

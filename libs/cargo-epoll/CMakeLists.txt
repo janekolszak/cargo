@@ -25,6 +25,7 @@ MESSAGE(STATUS "Generating makefile for the lib${PROJECT_NAME}...")
 FILE(GLOB HEADERS           *.hpp
                             ${COMMON_FOLDER}/config.hpp)
 FILE(GLOB HEADERS_UTILS     ${COMMON_FOLDER}/utils/eventfd.hpp
+                            ${COMMON_FOLDER}/utils/signal.hpp
                             ${COMMON_FOLDER}/utils/callback-guard.hpp)
 
 FILE(GLOB SRCS              *.cpp)

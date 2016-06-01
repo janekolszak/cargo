@@ -32,6 +32,7 @@
 #include <atomic>
 
 namespace cargo {
+namespace epoll {
 
 /**
  * Will dispatch poll events in a newly created thread
@@ -49,6 +50,7 @@ private:
     std::thread mThread;
 };
 
+} // namespace epoll
 } // namespace cargo
 
 #endif // CARGO_IPC_EPOLL_THREAD_DISPATCHER_HPP

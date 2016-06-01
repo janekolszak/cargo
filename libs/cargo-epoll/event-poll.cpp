@@ -37,6 +37,7 @@
 using namespace utils;
 
 namespace cargo {
+namespace epoll {
 
 EventPoll::EventPoll()
     : mPollFD(::epoll_create1(EPOLL_CLOEXEC))
@@ -174,4 +175,5 @@ void EventPoll::removeFDInternal(const int fd)
     }
 }
 
+} // namespace epoll
 } // namespace cargo

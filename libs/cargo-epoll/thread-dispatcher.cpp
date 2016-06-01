@@ -27,6 +27,7 @@
 #include "cargo-epoll/thread-dispatcher.hpp"
 
 namespace cargo {
+namespace epoll {
 
 ThreadDispatcher::ThreadDispatcher()
     : mStopped(false)
@@ -56,4 +57,5 @@ EventPoll& ThreadDispatcher::getPoll()
     return mPoll;
 }
 
+} // namespace epoll
 } // namespace cargo

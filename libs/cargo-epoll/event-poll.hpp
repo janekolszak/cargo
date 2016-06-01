@@ -33,7 +33,7 @@
 #include <memory>
 
 namespace cargo {
-
+namespace epoll {
 /**
  * @brief This class waits on registered file descriptor for events.
  * It uses epoll mechanism.
@@ -115,6 +115,7 @@ private:
     void removeFDInternal(const int fd);
 };
 
+} // namespace epoll
 } // namespace cargo
 
 #endif // CARGO_IPC_EPOLL_EVENT_POLL_HPP

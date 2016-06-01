@@ -31,6 +31,7 @@
 #include <gio/gio.h>
 
 namespace cargo {
+namespace epoll {
 
 /**
  * Will dispatch poll events in glib thread
@@ -48,6 +49,7 @@ private:
     guint mWatchId;
 };
 
+} // namespace epoll
 } // namespace cargo
 
 #endif // CARGO_IPC_EPOLL_GLIB_DISPATCHER_HPP

@@ -29,6 +29,7 @@
 #include <sstream>
 
 namespace cargo {
+namespace epoll {
 
 namespace {
 
@@ -67,4 +68,5 @@ std::string eventsToString(Events events)
     return ret;
 }
 
+} // namespace epoll
 } // namespace cargo

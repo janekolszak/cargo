@@ -48,10 +48,10 @@ public:
 	typedef std::function<void(void)> Callback;
 
 	// template<typename Clock, typename Duration>
-	// TimerFD(const std::chrono::time_point<Clock, Duration>& timePoint, cargo::EventPoll& eventPoll);
+	// TimerFD(const std::chrono::time_point<Clock, Duration>& timePoint, EventPoll& eventPoll);
 
 	template<typename Rep, typename Period>
-	TimerFD(const std::chrono::duration<Rep, Period>& duration, cargo::EventPoll& eventPoll);
+	TimerFD(const std::chrono::duration<Rep, Period>& duration, EventPoll& eventPoll);
 
 	virtual ~TimerFD();
 
@@ -76,7 +76,7 @@ private:
 
 	int mFD;
 	std::mutex mMutex;
-	cargo::EventPoll& mEventPoll;
+	EventPoll& mEventPoll;
 	Callback mCallback;
 
 	void handleInternal();
@@ -84,7 +84,7 @@ private:
 
 
 // template<typename Clock, typename Duration>
-// TimerFD::TimerFD(const std::chrono::time_point<Clock, Duration>& timePoint, cargo::EventPoll& eventPoll)
+// TimerFD::TimerFD(const std::chrono::time_point<Clock, Duration>& timePoint, EventPoll& eventPoll)
 // 	: mEventPoll(eventPoll)
 // {
 // 	// Create the timerfd
@@ -97,7 +97,7 @@ private:
 // }
 
 template<typename Rep, typename Period>
-TimerFD::TimerFD(const std::chrono::duration<Rep, Period>& duration, cargo::EventPoll& eventPoll)
+TimerFD::TimerFD(const std::chrono::duration<Rep, Period>& duration, EventPoll& eventPoll)
 	: mEventPoll(eventPoll)
 {
 	// Create the timerfd
