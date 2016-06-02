@@ -21,7 +21,7 @@ CMAKE_MINIMUM_REQUIRED (VERSION 2.6.2)
 PROJECT(cargo)
 
 IF(NOT DEFINED VERSION)
-    SET(VERSION "0.2.2")
+    SET(VERSION "0.2.3")
 ENDIF(NOT DEFINED VERSION)
 
 ## pkgconfig ##################################################################
