@@ -1,7 +1,7 @@
 /*
  *  Copyright (c) 2014 Samsung Electronics Co., Ltd All Rights Reserved
  *
- *  Contact: Jan Olszak <j.olszak@samsung.com>
+ *  Contact: Jan Olszak <janekolszak@gmail.com>
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -18,7 +18,7 @@
 
 /**
  * @file
- * @author   Jan Olszak (j.olszak@samsung.com)
+ * @author   Jan Olszak (janekolszak@gmail.com)
  * @defgroup libcargo-logger libcargo-logger
  * @brief C++ library for handling logging.
  *

@@ -17,7 +17,7 @@
 
 /**
  * @file
- * @author  Jan Olszak (j.olszak@samsung.com)
+ * @author  Jan Olszak (janekolszak@gmail.com)
  * @brief   Unit tests of the channel class
  */
 

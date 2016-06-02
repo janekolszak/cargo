@@ -14,7 +14,7 @@
 #
 #
 # @file   CMakeLists.txt
-# @author Jan Olszak (j.olszak@samsung.com)
+# @author Jan Olszak (janekolszak@gmail.com)
 #
 
 MESSAGE(STATUS "")
