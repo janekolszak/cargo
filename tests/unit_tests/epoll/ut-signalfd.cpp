@@ -1,7 +1,7 @@
 /*
  *  Copyright (c) 2015 Samsung Electronics Co., Ltd All Rights Reserved
  *
- *  Contact: Jan Olszak <j.olszak@samsung.com>
+ *  Contact: Jan Olszak <janekolszak@gmail.com>
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -19,7 +19,7 @@
 
 /**
  * @file
- * @author  Jan Olszak (j.olszak@samsung.com)
+ * @author  Jan Olszak (janekolszak@gmail.com)
  * @brief   Unit tests of SignalFD
  */
 
@@ -27,15 +27,15 @@
 
 #include "ut.hpp"
 
-#include "cargo-utils/signalfd.hpp"
-#include "cargo-ipc/epoll/event-poll.hpp"
+#include "cargo-epoll/signalfd.hpp"
+#include "cargo-epoll/event-poll.hpp"
 #include <atomic>
 #include <chrono>
 #include <thread>
 #include <csignal>
 
 
-using namespace utils;
+using namespace cargo::epoll;
 
 namespace {
 
@@ -72,13 +72,13 @@ const int TIMEOUT = 100;
 
 BOOST_AUTO_TEST_CASE(ConstructorDesctructor)
 {
-    cargo::ipc::epoll::EventPoll poll;
+    EventPoll poll;
     SignalFD s(poll);
 }
 
 BOOST_AUTO_TEST_CASE(BlockingSignalHandler)
 {
-    cargo::ipc::epoll::EventPoll poll;
+    EventPoll poll;
     SignalFD s(poll);
     s.setHandler(SIGUSR1, [](struct ::signalfd_siginfo&) {});
     s.setHandler(SIGINT, [](struct ::signalfd_siginfo&) {});
@@ -90,7 +90,7 @@ BOOST_AUTO_TEST_CASE(BlockingSignalHandler)
 
 BOOST_AUTO_TEST_CASE(SignalHandler)
 {
-    cargo::ipc::epoll::EventPoll poll;
+    EventPoll poll;
     SignalFD s(poll);
 
     bool isSignalCalled = false;
