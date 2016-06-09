@@ -213,6 +213,7 @@ BOOST_AUTO_TEST_CASE(JsonLoadErrors)
 
     IntConfig intConfig;
     BOOST_CHECK_NO_THROW(loadFromJsonString("{\"field\": 1}", intConfig));
+    BOOST_CHECK_NO_THROW(loadFromJsonString("{\"field\": null}", intConfig));
     BOOST_CHECK_THROW(loadFromJsonString("{\"field\": \"1\"}", intConfig), CargoException);
     BOOST_CHECK_THROW(loadFromJsonString("{\"field\": 1.0}", intConfig), CargoException);
     BOOST_CHECK_THROW(loadFromJsonString("{\"field\": true}", intConfig), CargoException);
@@ -224,6 +225,7 @@ BOOST_AUTO_TEST_CASE(JsonLoadErrors)
     StringConfig stringConfig;
     BOOST_CHECK_THROW(loadFromJsonString("{\"field\": 1}", stringConfig), CargoException);
     BOOST_CHECK_NO_THROW(loadFromJsonString("{\"field\": \"1\"}", stringConfig));
+    BOOST_CHECK_NO_THROW(loadFromJsonString("{\"field\": null}", stringConfig));
     BOOST_CHECK_THROW(loadFromJsonString("{\"field\": 1.0}", stringConfig), CargoException);
     BOOST_CHECK_THROW(loadFromJsonString("{\"field\": true}", stringConfig), CargoException);
     BOOST_CHECK_THROW(loadFromJsonString("{\"field\": []}", stringConfig), CargoException);
@@ -233,6 +235,7 @@ BOOST_AUTO_TEST_CASE(JsonLoadErrors)
     BOOST_CHECK_THROW(loadFromJsonString("{\"field\": 1}", doubleConfig), CargoException);
     BOOST_CHECK_THROW(loadFromJsonString("{\"field\": \"1\"}", doubleConfig), CargoException);
     BOOST_CHECK_NO_THROW(loadFromJsonString("{\"field\": 1.0}", doubleConfig));
+    BOOST_CHECK_NO_THROW(loadFromJsonString("{\"field\": null}", doubleConfig));
     BOOST_CHECK_THROW(loadFromJsonString("{\"field\": true}", doubleConfig), CargoException);
     BOOST_CHECK_THROW(loadFromJsonString("{\"field\": []}", doubleConfig), CargoException);
     BOOST_CHECK_THROW(loadFromJsonString("{\"field\": {}}", doubleConfig), CargoException);
@@ -242,6 +245,7 @@ BOOST_AUTO_TEST_CASE(JsonLoadErrors)
     BOOST_CHECK_THROW(loadFromJsonString("{\"field\": \"1\"}", boolConfig), CargoException);
     BOOST_CHECK_THROW(loadFromJsonString("{\"field\": 1.0}", boolConfig), CargoException);
     BOOST_CHECK_NO_THROW(loadFromJsonString("{\"field\": true}", boolConfig));
+    BOOST_CHECK_NO_THROW(loadFromJsonString("{\"field\": null}", boolConfig));
     BOOST_CHECK_THROW(loadFromJsonString("{\"field\": []}", boolConfig), CargoException);
     BOOST_CHECK_THROW(loadFromJsonString("{\"field\": {}}", boolConfig), CargoException);
 
@@ -251,6 +255,7 @@ BOOST_AUTO_TEST_CASE(JsonLoadErrors)
     BOOST_CHECK_THROW(loadFromJsonString("{\"field\": 1.0}", arrayConfig), CargoException);
     BOOST_CHECK_THROW(loadFromJsonString("{\"field\": true}", arrayConfig), CargoException);
     BOOST_CHECK_NO_THROW(loadFromJsonString("{\"field\": []}", arrayConfig));
+    BOOST_CHECK_NO_THROW(loadFromJsonString("{\"field\": null}", arrayConfig));
     BOOST_CHECK_THROW(loadFromJsonString("{\"field\": {}}", arrayConfig), CargoException);
 
     ObjectConfig objectConfig;
@@ -261,12 +266,16 @@ BOOST_AUTO_TEST_CASE(JsonLoadErrors)
     BOOST_CHECK_THROW(loadFromJsonString("{\"field\": []}", objectConfig), CargoException);
     BOOST_CHECK_THROW(loadFromJsonString("{\"field\": {}}", objectConfig), CargoException);
     BOOST_CHECK_NO_THROW(loadFromJsonString("{\"field\": {\"field\": 1}}", objectConfig));
+    BOOST_CHECK_NO_THROW(loadFromJsonString("{\"field\": null}", objectConfig));
 
     UnionConfig unionConfig;
     BOOST_CHECK_THROW(loadFromJsonString("{\"type\": \"long\", \"value\": 1}", unionConfig), CargoException);
     BOOST_CHECK_THROW(loadFromJsonString("{\"type\": \"int\"}", unionConfig), CargoException);
     BOOST_CHECK_NO_THROW(loadFromJsonString("{\"type\": \"int\", \"value\": 1}", unionConfig));
+    BOOST_CHECK_NO_THROW(loadFromJsonString("{\"type\": \"int\", \"value\": null}", unionConfig));
     BOOST_CHECK_NO_THROW(loadFromJsonString("{\"type\": \"bool\", \"value\": true}", unionConfig));
+    BOOST_CHECK_NO_THROW(loadFromJsonString("{\"type\": \"bool\", \"value\": null}", unionConfig));
+
 }
 
 namespace hasVisitableTest {

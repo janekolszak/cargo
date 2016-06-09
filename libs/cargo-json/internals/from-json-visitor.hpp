@@ -84,19 +84,27 @@ private:
     {
     }
 
-    static void checkType(json_object* object, json_type type)
+    static bool checkType(json_object* object, json_type type)
     {
-        if (type != json_object_get_type(object)) {
+        auto typeInJson = json_object_get_type(object);
+        if (typeInJson == json_type_null) {
+            return true;
+        } else if (type != typeInJson) {
             throw CargoException("Invalid field type");
         }
+
+        return false;
     }
 
     template<typename T, typename std::enable_if<std::is_integral<T>::value, int>::type = 0>
     static void fromJsonObject(json_object* object, T& value)
     {
-        checkType(object, json_type_int);
+        if (checkType(object, json_type_int)) {
+            return;
+        }
+
         typedef typename std::conditional<std::is_signed<T>::value,
-                                          std::int64_t, std::uint64_t>::type BufferType;
+                std::int64_t, std::uint64_t>::type BufferType;
         BufferType value64 = json_object_get_int64(object);
         if (value64 > std::numeric_limits<T>::max() || value64 < std::numeric_limits<T>::min()) {
             throw CargoException("Value out of range");
@@ -106,25 +114,33 @@ private:
 
     static void fromJsonObject(json_object* object, bool& value)
     {
-        checkType(object, json_type_boolean);
+        if (checkType(object, json_type_boolean)) {
+            return;
+        }
         value = json_object_get_boolean(object);
     }
 
     static void fromJsonObject(json_object* object, double& value)
     {
-        checkType(object, json_type_double);
+        if (checkType(object, json_type_double)) {
+            return;
+        }
         value = json_object_get_double(object);
     }
 
     static void fromJsonObject(json_object* object, std::string& value)
     {
-        checkType(object, json_type_string);
+        if (checkType(object, json_type_string)) {
+            return;
+        }
         value = json_object_get_string(object);
     }
 
     static void fromJsonObject(json_object* object, char* &value)
     {
-        checkType(object, json_type_string);
+        if (checkType(object, json_type_string)) {
+            return;
+        }
 
         int len = json_object_get_string_len(object);
         value = new char[len + 1];
@@ -135,7 +151,9 @@ private:
     template<typename T>
     static void fromJsonObject(json_object* object, std::vector<T>& values)
     {
-        checkType(object, json_type_array);
+        if (checkType(object, json_type_array)) {
+            return;
+        }
         int length = json_object_array_length(object);
         values.resize(static_cast<size_t>(length));
         for (int i = 0; i < length; ++i) {
@@ -146,7 +164,9 @@ private:
     template<typename T, std::size_t N>
     static void fromJsonObject(json_object* object, std::array<T, N>& values)
     {
-        checkType(object, json_type_array);
+        if (checkType(object, json_type_array)) {
+            return;
+        }
 
         for (std::size_t i = 0; i < N; ++i) {
             fromJsonObject(json_object_array_get_idx(object, i), values[i]);
@@ -156,7 +176,9 @@ private:
     template<typename V>
     static void fromJsonObject(json_object* object, std::map<std::string, V>& values)
     {
-        checkType(object, json_type_object);
+        if (checkType(object, json_type_object)) {
+            return;
+        }
 
         json_object_object_foreach(object, key, val) {
             fromJsonObject(val, values[key]);
@@ -176,7 +198,9 @@ private:
     template<typename T, typename std::enable_if<isLikeTuple<T>::value, int>::type = 0>
     static void fromJsonObject(json_object* object, T& values)
     {
-        checkType(object, json_type_array);
+        if (checkType(object, json_type_array)) {
+            return;
+        }
 
         std::size_t idx = 0;
         HelperVisitor visitor;
@@ -193,7 +217,9 @@ private:
     template<typename T, typename std::enable_if<isVisitable<T>::value, int>::type = 0>
     static void fromJsonObject(json_object* object, T& value)
     {
-        checkType(object, json_type_object);
+        if (checkType(object, json_type_object)) {
+            return;
+        }
         FromJsonVisitor visitor(object);
         value.accept(visitor);
     }
