@@ -31,6 +31,7 @@
 #include <string>
 #include <vector>
 #include <map>
+#include <memory>
 #include <tuple>
 
 #include "cargo/fields.hpp"
@@ -269,6 +270,26 @@ struct IncompatibleTestConfig: public PartialTestConfig {
     )
 };
 
+struct PointerTestConfig {
+	int* intPtr;
+	std::unique_ptr<int> intUniquePtr;
+	int* intPtrNull;
+	std::unique_ptr<int> intUniquePtrNull;
+
+	std::unique_ptr<std::string> strUniquePtr;
+	std::unique_ptr<std::string> strUniquePtrNull;
+
+    CARGO_REGISTER
+    (
+        intPtr,
+        intUniquePtr,
+        intPtrNull,
+        intUniquePtrNull,
+        strUniquePtr,
+        strUniquePtrNull
+    )
+};
+
 /**
  * JSON string used in ConfigSuite test cases
  * For the purpose of these tests the order of this string
@@ -342,5 +363,14 @@ const std::string jsonEmptyTestString =
     "\"map\": { }, "
     "\"dirPath\": \"\", "
     "\"filePath\": \"\" }";
+
+
+const std::string jsonTestStringPtr =
+    "{ \"intPtr\": 1, "
+    "\"intUniquePtr\": 2, "
+    "\"intPtrNull\": null, "
+    "\"intUniquePtrNull\": null, "
+    "\"strUniquePtr\": \"str\", "
+    "\"strUniquePtrNull\": null }";
 
 #endif

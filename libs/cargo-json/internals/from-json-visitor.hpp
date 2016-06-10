@@ -96,6 +96,41 @@ private:
         return false;
     }
 
+    template<typename T>
+    static void fromJsonObject(json_object* object, std::unique_ptr<T>& value)
+    {
+        auto typeInJson = json_object_get_type(object);
+        if (typeInJson == json_type_null) {
+            value.reset(nullptr);
+            return;
+        }
+
+        if (!value) {
+        	value.reset(new T);
+        }
+
+        fromJsonObject(object, *value);
+    }
+
+
+    template<typename T, typename std::enable_if<std::is_pointer<T>::value, int>::type = 0>
+    static void fromJsonObject(json_object* object, T& value)
+    {
+        auto typeInJson = json_object_get_type(object);
+        if (typeInJson == json_type_null) {
+            delete value;
+            value = nullptr;
+            return;
+        }
+
+        if (!value) {
+            // Value isn't allocated, do nothing
+            return;
+        }
+
+        fromJsonObject(object, *value);
+    }
+
     template<typename T, typename std::enable_if<std::is_integral<T>::value, int>::type = 0>
     static void fromJsonObject(json_object* object, T& value)
     {

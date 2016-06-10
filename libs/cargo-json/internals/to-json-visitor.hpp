@@ -83,6 +83,24 @@ private:
         return ret;
     }
 
+    template<typename T, typename std::enable_if<std::is_pointer<T>::value, int>::type = 0>
+    static json_object* toJsonObject(T value)
+    {
+    	if (!value) {
+    		return nullptr;
+    	}
+        return toJsonObject(*value);
+    }
+
+    template<typename T>
+    static json_object* toJsonObject(const std::unique_ptr<T>& value)
+    {
+    	if (!value) {
+    		return nullptr;
+    	}
+        return toJsonObject(*value);
+    }
+
     template<typename T, typename std::enable_if<std::is_integral<T>::value, int>::type = 0>
     static json_object* toJsonObject(T value)
     {

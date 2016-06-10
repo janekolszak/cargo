@@ -37,6 +37,7 @@
 #include "cargo-utils/scoped-dir.hpp"
 #include <sys/types.h>
 #include <sys/stat.h>
+#include <memory>
 #include <fcntl.h>
 
 namespace {
@@ -174,6 +175,18 @@ BOOST_AUTO_TEST_CASE(ToJsonString)
     BOOST_CHECK_THROW(saveToJsonString(unionConfig), CargoException);
 }
 
+BOOST_AUTO_TEST_CASE(ToJsonStringPtr)
+{
+    PointerTestConfig testConfig;
+    testConfig.intPtr = new int;
+    testConfig.intPtrNull = new int;
+    testConfig.intUniquePtrNull.reset(new int);
+
+    BOOST_REQUIRE_NO_THROW(loadFromJsonString(jsonTestStringPtr, testConfig));
+    std::string out = saveToJsonString(testConfig);
+    BOOST_CHECK_EQUAL(out, jsonTestStringPtr);
+}
+
 namespace loadErrorsTest {
 
 #define DECLARE_CONFIG(name, type) \
@@ -187,6 +200,8 @@ DECLARE_CONFIG(DoubleConfig, double)
 DECLARE_CONFIG(BoolConfig, bool)
 DECLARE_CONFIG(ArrayConfig, std::vector<int>)
 DECLARE_CONFIG(ObjectConfig, IntConfig)
+DECLARE_CONFIG(IntPtrConfig, int*)
+DECLARE_CONFIG(IntUniquePtrConfig, std::unique_ptr<int>)
 #undef DECLARE_CONFIG
 struct UnionConfig {
     CARGO_DECLARE_UNION
@@ -276,6 +291,29 @@ BOOST_AUTO_TEST_CASE(JsonLoadErrors)
     BOOST_CHECK_NO_THROW(loadFromJsonString("{\"type\": \"bool\", \"value\": true}", unionConfig));
     BOOST_CHECK_NO_THROW(loadFromJsonString("{\"type\": \"bool\", \"value\": null}", unionConfig));
 
+    IntPtrConfig intPtrConfig;
+    intPtrConfig.field = new int;
+    BOOST_CHECK_NO_THROW(loadFromJsonString("{\"field\": 1}", intPtrConfig));
+    BOOST_CHECK_THROW(loadFromJsonString("{\"field\": \"1\"}", intPtrConfig), CargoException);
+    BOOST_CHECK_THROW(loadFromJsonString("{\"field\": 1.0}", intPtrConfig), CargoException);
+    BOOST_CHECK_THROW(loadFromJsonString("{\"field\": true}", intPtrConfig), CargoException);
+    BOOST_CHECK_THROW(loadFromJsonString("{\"field\": []}", intPtrConfig), CargoException);
+    BOOST_CHECK_THROW(loadFromJsonString("{\"field\": {}}", intPtrConfig), CargoException);
+    BOOST_CHECK_THROW(loadFromJsonString("{\"field\": 1234567890123456789}", intPtrConfig), CargoException);
+    BOOST_CHECK_THROW(loadFromJsonString("{\"field\": -1234567890123456789}", intPtrConfig), CargoException);
+    BOOST_CHECK_NO_THROW(loadFromJsonString("{\"field\": null}", intPtrConfig));
+
+    IntUniquePtrConfig intUniquePtrConfig;
+    intUniquePtrConfig.field.reset(new int);
+    BOOST_CHECK_NO_THROW(loadFromJsonString("{\"field\": 1}", intUniquePtrConfig));
+    BOOST_CHECK_THROW(loadFromJsonString("{\"field\": \"1\"}", intUniquePtrConfig), CargoException);
+    BOOST_CHECK_THROW(loadFromJsonString("{\"field\": 1.0}", intUniquePtrConfig), CargoException);
+    BOOST_CHECK_THROW(loadFromJsonString("{\"field\": true}", intUniquePtrConfig), CargoException);
+    BOOST_CHECK_THROW(loadFromJsonString("{\"field\": []}", intUniquePtrConfig), CargoException);
+    BOOST_CHECK_THROW(loadFromJsonString("{\"field\": {}}", intUniquePtrConfig), CargoException);
+    BOOST_CHECK_THROW(loadFromJsonString("{\"field\": 1234567890123456789}", intUniquePtrConfig), CargoException);
+    BOOST_CHECK_THROW(loadFromJsonString("{\"field\": -1234567890123456789}", intUniquePtrConfig), CargoException);
+    BOOST_CHECK_NO_THROW(loadFromJsonString("{\"field\": null}", intUniquePtrConfig));
 }
 
 namespace hasVisitableTest {
