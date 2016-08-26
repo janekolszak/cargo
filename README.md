@@ -4,7 +4,7 @@ Cargo is a set of C++ libraries that provide support in data parsing and passing
 # Installation
 For now it's only possible to build and install all the Cargo libraries. For example on Ubuntu 16.04 (after you install all the dependencies):
 
-```
+```bash
 sudo apt-get install -y cmake clang gcc libboost-test1.58-dev libboost-system1.58-dev libboost-filesystem1.58-dev libglib2.0-dev uuid-dev libsystemd-dev libjson-c-dev libsqlite3-dev
 
 mkdir build && cd build
@@ -88,7 +88,7 @@ You can build Cargo libs in a Docker container.
 This way you don't need to fiddle with your host OS to build Cargo binaries.
 
 To build cargo just run the prepared script (install docker and docker-compose before):
-```
+```bash
 cd utils
 ./build_in_docker.sh
 ```
