@@ -52,11 +52,13 @@ CONFIGURE_FILE(${PC_FILE}.in ${CMAKE_CURRENT_BINARY_DIR}/${PC_FILE} @ONLY)
 
 ## Install #####################################################################
 INSTALL(FILES       ${CMAKE_CURRENT_BINARY_DIR}/${PC_FILE}
+        COMPONENT   logger
         DESTINATION ${LIB_INSTALL_DIR}/pkgconfig)
 
 INSTALL(TARGETS     ${PROJECT_NAME}
-        DESTINATION ${LIB_INSTALL_DIR}
-        COMPONENT   RuntimeLibraries)
+        COMPONENT   logger
+        DESTINATION ${LIB_INSTALL_DIR})
 
 INSTALL(FILES       ${HEADERS}
+        COMPONENT   logger-dev
         DESTINATION ${INCLUDE_INSTALL_DIR}/${PROJECT_NAME})

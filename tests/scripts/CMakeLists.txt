@@ -22,4 +22,6 @@ FILE(GLOB_RECURSE scripts *.py)
 
 
 ## Install #####################################################################
-INSTALL(PROGRAMS ${scripts} DESTINATION ${SCRIPT_INSTALL_DIR})
+INSTALL(PROGRAMS ${scripts}
+        COMPONENT tests
+        DESTINATION ${SCRIPT_INSTALL_DIR})

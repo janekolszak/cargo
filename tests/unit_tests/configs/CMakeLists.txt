@@ -27,10 +27,12 @@ ENDIF(NOT WITHOUT_SYSTEMD)
 
 ## Install #####################################################################
 INSTALL(FILES        utils/file.txt
+        COMPONENT    tests
         DESTINATION  ${CARGO_TEST_CONFIG_INSTALL_DIR}/utils)
 
 IF(NOT WITHOUT_SYSTEMD)
 INSTALL(FILES        systemd/cargo-socket-test.socket
                      ${CMAKE_BINARY_DIR}/systemd/cargo-socket-test.service
+        COMPONENT    tests
         DESTINATION  ${SYSTEMD_UNIT_DIR})
 ENDIF(NOT WITHOUT_SYSTEMD)

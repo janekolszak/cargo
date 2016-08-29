@@ -45,15 +45,18 @@ CONFIGURE_FILE(${PC_FILE}.in ${CMAKE_CURRENT_BINARY_DIR}/${PC_FILE} @ONLY)
 
 ## Install #####################################################################
 INSTALL(FILES       ${CMAKE_CURRENT_BINARY_DIR}/${PC_FILE}
+        COMPONENT   fd
         DESTINATION ${LIB_INSTALL_DIR}/pkgconfig)
 
 INSTALL(TARGETS     ${PROJECT_NAME}
-        DESTINATION ${LIB_INSTALL_DIR}
-        COMPONENT   RuntimeLibraries)
+        COMPONENT   fd
+        DESTINATION ${LIB_INSTALL_DIR})
 
 INSTALL(DIRECTORY . DESTINATION ${INCLUDE_INSTALL_DIR}/${PROJECT_NAME}
+        COMPONENT   fd-dev
         FILES_MATCHING PATTERN "*.hpp"
                        PATTERN "CMakeFiles" EXCLUDE)
 
 INSTALL(FILES       ${COMMON_FOLDER}/config.hpp
+        COMPONENT   fd-dev
         DESTINATION ${INCLUDE_INSTALL_DIR}/${PROJECT_NAME})

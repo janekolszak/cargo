@@ -37,8 +37,9 @@ TARGET_LINK_LIBRARIES(${PROJECT_NAME} ${Boost_LIBRARIES} ${CARGO_UTILS_DEPS_LIBR
 ## Install #####################################################################
 INSTALL(TARGETS     ${PROJECT_NAME}
         DESTINATION ${LIB_INSTALL_DIR}
-        COMPONENT   DevelopmentLibraries)
+        COMPONENT   utils)
 
 INSTALL(DIRECTORY . DESTINATION ${INCLUDE_INSTALL_DIR}
+	    COMPONENT utils-dev
         FILES_MATCHING PATTERN "*.hpp"
                        PATTERN "CMakeFiles" EXCLUDE)

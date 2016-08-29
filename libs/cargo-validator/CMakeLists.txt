@@ -49,15 +49,18 @@ CONFIGURE_FILE(${PC_FILE}.in ${CMAKE_CURRENT_BINARY_DIR}/${PC_FILE} @ONLY)
 
 ## Install #####################################################################
 INSTALL(FILES       ${CMAKE_CURRENT_BINARY_DIR}/${PC_FILE}
+        COMPONENT   validator
         DESTINATION ${LIB_INSTALL_DIR}/pkgconfig)
 
 INSTALL(TARGETS     ${PROJECT_NAME}
-        DESTINATION ${LIB_INSTALL_DIR}
-        COMPONENT   RuntimeLibraries)
+        COMPONENT   validator
+        DESTINATION ${LIB_INSTALL_DIR})
 
 INSTALL(FILES       ${HEADERS}
+        COMPONENT   validator-dev
         DESTINATION ${INCLUDE_INSTALL_DIR}/${PROJECT_NAME})
 
 INSTALL(FILES       ${HEADERS_INTERNALS}
+        COMPONENT   validator-dev
         DESTINATION ${INCLUDE_INSTALL_DIR}/${PROJECT_NAME}/internals)
 

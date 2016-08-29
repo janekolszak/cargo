@@ -36,11 +36,14 @@ CONFIGURE_FILE(${PC_FILE}.in ${CMAKE_CURRENT_BINARY_DIR}/${PC_FILE} @ONLY)
 
 ## Install #####################################################################
 INSTALL(FILES       ${CMAKE_CURRENT_BINARY_DIR}/${PC_FILE}
+        COMPONENT cargo
         DESTINATION ${LIB_INSTALL_DIR}/pkgconfig)
 
 INSTALL(DIRECTORY . DESTINATION ${INCLUDE_INSTALL_DIR}/${PROJECT_NAME}
+        COMPONENT cargo
         FILES_MATCHING PATTERN "*.hpp"
                        PATTERN "CMakeFiles" EXCLUDE)
 
 INSTALL(FILES       ${COMMON_FOLDER}/config.hpp
+        COMPONENT cargo-dev
         DESTINATION ${INCLUDE_INSTALL_DIR}/${PROJECT_NAME})

@@ -17,11 +17,14 @@
 # @author Jan Olszak (janekolszak@gmail.com)
 #
 
-CMAKE_MINIMUM_REQUIRED (VERSION 2.6.2)
+CMAKE_MINIMUM_REQUIRED (VERSION 3.5.1)
 PROJECT(cargo)
 
 IF(NOT DEFINED VERSION)
-    SET(VERSION "0.2.3")
+	SET(MAJOR_VERSION 0)
+	SET(MINOR_VERSION 2)
+	SET(PATCH_VERSION 3)
+	set(VERSION "${MAJOR_VERSION}.${MINOR_VERSION}.${PATCH_VERSION}")
 ENDIF(NOT DEFINED VERSION)
 
 ## pkgconfig ##################################################################
@@ -151,6 +154,7 @@ IF(NOT WITHOUT_SYSTEMD)
     ADD_DEFINITIONS(-DHAVE_SYSTEMD)
 ENDIF(NOT WITHOUT_SYSTEMD)
 
+
 ## Python packages directory ###################################################
 IF(NOT DEFINED PYTHON_SITELIB)
     EXECUTE_PROCESS(COMMAND python -c
@@ -186,3 +190,45 @@ ADD_SUBDIRECTORY(${CARGO_GVARIANT_FOLDER})
 ADD_SUBDIRECTORY(${CARGO_IPC_FOLDER})
 ADD_SUBDIRECTORY(${CARGO_VALIDATOR_FOLDER})
 ADD_SUBDIRECTORY(${TESTS_FOLDER})
+
+
+## Packaging (rpm/deb) #########################################################
+if(EXISTS "${CMAKE_ROOT}/Modules/CPack.cmake")
+	include(InstallRequiredSystemLibraries)
+
+	set(CPACK_SET_DESTDIR "on")
+	set(CPACK_PACKAGING_INSTALL_PREFIX "/tmp")
+
+	# Component installation
+	set(CPACK_GENERATOR "DEB;RPM")
+	# set(CPACK_COMPONENTS_ALL cargo-utils cargo cargo-dev epoll epoll-static epoll-dev fd fd-dev gvariant-dev ipc ipc-dev json-dev logger logger-dev sqlite sqlite-dev sqlite-json-dev validator validator-dev)
+	set(CPACK_RPM_COMPONENT_INSTALL ON)
+	set(CPACK_DEB_COMPONENT_INSTALL ON)
+
+	# Common for rpm and deb
+	set(CPACK_PACKAGE_DESCRIPTION "Cargo")
+	set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "C++ Cargo Libraries")
+	set(CPACK_PACKAGE_VENDOR "Jan Olszak")
+	set(CPACK_PACKAGE_CONTACT "github.com/janekolszak/cargo")
+	set(CPACK_PACKAGE_VERSION_MAJOR "${MAJOR_VERSION}")
+	set(CPACK_PACKAGE_VERSION_MINOR "${MINOR_VERSION}")
+	set(CPACK_PACKAGE_VERSION_PATCH "${PATCH_VERSION}")
+	set(CPACK_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}_${VERSION}")
+	set(CPACK_SOURCE_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}_${VERSION}")
+
+
+	## TODO: FIX dependencies
+
+	# DEB specific
+	# set(CPACK_DEBIAN_PACKAGE_DEPENDS  "libboost-program-options1.55.0 (>= 1.55)")
+	set(CPACK_DEBIAN_PACKAGE_PRIORITY  "optional")
+	set(CPACK_DEBIAN_PACKAGE_SECTION   "utilities")
+	set(CPACK_DEBIAN_ARCHITECTURE      ${CMAKE_SYSTEM_PROCESSOR})
+
+	# RPM specific
+	set(CPACK_RPM_PACKAGE_GROUP "Applications/Internet")
+
+	include(CPackComponent)
+	include(CPack)
+
+endif(EXISTS "${CMAKE_ROOT}/Modules/CPack.cmake")

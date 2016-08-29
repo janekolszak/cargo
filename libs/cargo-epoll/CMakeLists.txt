@@ -69,15 +69,17 @@ CONFIGURE_FILE(${PC_FILE}.in ${CMAKE_CURRENT_BINARY_DIR}/${PC_FILE} @ONLY)
 
 ## Install #####################################################################
 INSTALL(FILES       ${CMAKE_CURRENT_BINARY_DIR}/${PC_FILE}
+        COMPONENT   epoll
         DESTINATION ${LIB_INSTALL_DIR}/pkgconfig)
 
 INSTALL(TARGETS     ${SHARED_TARGET}
-        DESTINATION ${LIB_INSTALL_DIR}
-        COMPONENT   SharedLibraries)
+        COMPONENT   epoll
+        DESTINATION ${LIB_INSTALL_DIR})
 
 INSTALL(TARGETS     ${STATIC_TARGET}
-        DESTINATION ${LIB_INSTALL_DIR}
-        COMPONENT   StaticLibraries)
+        COMPONENT   epoll-static
+        DESTINATION ${LIB_INSTALL_DIR})
 
 INSTALL(FILES       ${HEADERS}
+        COMPONENT   epoll-dev
         DESTINATION ${INCLUDE_INSTALL_DIR}/${PROJECT_NAME})

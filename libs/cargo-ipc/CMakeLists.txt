@@ -62,20 +62,25 @@ CONFIGURE_FILE(${PC_FILE}.in ${CMAKE_CURRENT_BINARY_DIR}/${PC_FILE} @ONLY)
 
 ## Install #####################################################################
 INSTALL(FILES       ${CMAKE_CURRENT_BINARY_DIR}/${PC_FILE}
+        COMPONENT   ipc
         DESTINATION ${LIB_INSTALL_DIR}/pkgconfig)
 
 INSTALL(TARGETS     ${PROJECT_NAME}
         DESTINATION ${LIB_INSTALL_DIR}
-        COMPONENT   RuntimeLibraries)
+        COMPONENT   ipc)
 
 INSTALL(FILES       ${HEADERS}
+        COMPONENT   ipc-dev
         DESTINATION ${INCLUDE_INSTALL_DIR}/${PROJECT_NAME})
 
 INSTALL(FILES       ${HEADERS_INTERNALS}
+        COMPONENT   ipc-dev
         DESTINATION ${INCLUDE_INSTALL_DIR}/${PROJECT_NAME}/internals)
 
 INSTALL(FILES       ${HEADERS_EPOLL}
+        COMPONENT   ipc-dev
         DESTINATION ${INCLUDE_INSTALL_DIR}/${PROJECT_NAME}/epoll)
 
 INSTALL(FILES       ${HEADERS_UTILS}
+        COMPONENT   ipc-dev
         DESTINATION ${INCLUDE_INSTALL_DIR}/${PROJECT_NAME}/utils)
