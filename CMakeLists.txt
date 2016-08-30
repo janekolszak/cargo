@@ -199,9 +199,8 @@ if(EXISTS "${CMAKE_ROOT}/Modules/CPack.cmake")
 	set(CPACK_SET_DESTDIR "on")
 	set(CPACK_PACKAGING_INSTALL_PREFIX "/tmp")
 
-	# Component installation
+	# Component installation - all components will generate separate packages
 	set(CPACK_GENERATOR "DEB;RPM")
-	# set(CPACK_COMPONENTS_ALL cargo-utils cargo cargo-dev epoll epoll-static epoll-dev fd fd-dev gvariant-dev ipc ipc-dev json-dev logger logger-dev sqlite sqlite-dev sqlite-json-dev validator validator-dev)
 	set(CPACK_RPM_COMPONENT_INSTALL ON)
 	set(CPACK_DEB_COMPONENT_INSTALL ON)
 
