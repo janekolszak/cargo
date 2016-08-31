@@ -106,12 +106,27 @@ private:
         }
 
         if (!value) {
-        	value.reset(new T);
+            value.reset(new T);
         }
 
         fromJsonObject(object, *value);
     }
 
+    template<typename T>
+    static void fromJsonObject(json_object* object, std::shared_ptr<T>& value)
+    {
+        auto typeInJson = json_object_get_type(object);
+        if (typeInJson == json_type_null) {
+            value.reset();
+            return;
+        }
+
+        if (!value) {
+            value.reset(new T);
+        }
+
+        fromJsonObject(object, *value);
+    }
 
     template<typename T, typename std::enable_if<std::is_pointer<T>::value, int>::type = 0>
     static void fromJsonObject(json_object* object, T& value)

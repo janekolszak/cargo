@@ -185,6 +185,9 @@ BOOST_AUTO_TEST_CASE(ToJsonStringPtr)
     BOOST_REQUIRE_NO_THROW(loadFromJsonString(jsonTestStringPtr, testConfig));
     std::string out = saveToJsonString(testConfig);
     BOOST_CHECK_EQUAL(out, jsonTestStringPtr);
+    BOOST_CHECK(bool(testConfig.strSharedPtr));
+    BOOST_CHECK(!bool(testConfig.strSharedPtrNull));
+
 }
 
 namespace loadErrorsTest {

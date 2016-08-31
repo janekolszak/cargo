@@ -279,6 +279,9 @@ struct PointerTestConfig {
 	std::unique_ptr<std::string> strUniquePtr;
 	std::unique_ptr<std::string> strUniquePtrNull;
 
+	std::shared_ptr<std::string> strSharedPtr;
+	std::shared_ptr<std::string> strSharedPtrNull;
+
     CARGO_REGISTER
     (
         intPtr,
@@ -286,7 +289,9 @@ struct PointerTestConfig {
         intPtrNull,
         intUniquePtrNull,
         strUniquePtr,
-        strUniquePtrNull
+        strUniquePtrNull,
+        strSharedPtr,
+        strSharedPtrNull
     )
 };
 
@@ -371,6 +376,8 @@ const std::string jsonTestStringPtr =
     "\"intPtrNull\": null, "
     "\"intUniquePtrNull\": null, "
     "\"strUniquePtr\": \"str\", "
-    "\"strUniquePtrNull\": null }";
+    "\"strUniquePtrNull\": null, "
+    "\"strSharedPtr\": \"str\", "
+    "\"strSharedPtrNull\": null }";
 
 #endif
