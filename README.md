@@ -1,9 +1,83 @@
 # Cargo [![Build Status](https://travis-ci.org/janekolszak/cargo.svg?branch=master)](https://travis-ci.org/janekolszak/cargo)
-Cargo is a set of C++ libraries that provide support in data parsing and passing via Unix sockets.
+Cargo is a set of C++ libraries that aim to ease Linux daemon development. It supports:
+- C++ `struct` serialization and deserialization from various formats
+- Data validation
+- IPC mechanism
+- Epoll wrapper
+- Logger
+
+All libraries are available in **deb** and **rpm** packages for x86 arch in the *release tab*.
+You can also build it all from source.
+
+# Libraries:
+
+#### cargo
+This package includes only header files that implement the core functionality of the library. Here are the macros that you use to make your structure *visitable*. You use them to make your structure serializable with other cargo-* libraries.
+
+#### cargo-json
+Serialization/deserialization from JSON text format
+
+#### cargo-fd
+Serialization/deserialization from Unix file descriptor:
+- Unix sockets
+- Internet sockets
+- File sockets
+- Pipes
+- and anything you can *read* and *write* to
+
+#### cargo-sqlite
+Serialization/deserialization to a key-value store implemented in sqlite3
+
+#### cargo-gvariant
+Serialization/deserialization from glib's [GVariant](https://developer.gnome.org/glib/stable/glib-GVariant.html) :
+- Unix sockets
+- Internet sockets
+- Files
+- Pipes
+
+#### cargo-validator
+Extensible data validation. Validation rules are inside a `struct` declaration which improves readability.
+It's possible to write custom functions for field validation.
+
+#### cargo-epoll
+A very useful C++ wrapper for Linux epoll mechanism, with already integrated with:
+- timerfd
+- signalfd
+- eventfd
+and a mechanism for adding your own fd to epoll.
+
+You can dispatch *events*:
+- in a dedicated, separate thread
+- in a glib loop
+- in your own thread, using the EventPoll's API
+
+#### cargo-ipc
+Feature full IPC mechanism that sends *cargo* structures to make remote calls via sockets. Some features:
+- Synchronous and asynchronous method calls
+- Signals
+- Error passing
+
+#### cargo-logger
+Small, extensible logger, with backends for:
+- stdin/stdout
+- systemd-journal
+- syslog
+- file
+- file with flushing after every log
+
+#### cargo-sqlite-json
+Reading default values on a structure from a JSON file.
+
+#### cargo-utils
+A static library and header files with some useful code that some cargo libs use.
+
 
 # Installation
-For now it's only possible to build and install all the Cargo libraries. For example on Ubuntu 16.04 (after you install all the dependencies):
 
+#### DEB and RPM for 64b
+You can download RPMs and DEBs pre-built for x86 architecture from the Release tab.
+
+#### Source
 ```bash
 sudo apt-get install -y cmake clang gcc libboost-test1.58-dev libboost-system1.58-dev libboost-filesystem1.58-dev libglib2.0-dev uuid-dev libsystemd-dev libjson-c-dev libsqlite3-dev
 
